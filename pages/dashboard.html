@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ZoFranca CR - Dashboard y Métricas</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <div id="loading" class="hidden">Cargando...</div>
+  <div id="notification"></div>
+
+  <main class="container">
+    <h1>Panel de Métricas del Proceso</h1>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3 id="metricTotalSolicitudes">0</h3>
+        <p>Total Solicitudes</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="metricPctAprobadas">0%</h3>
+        <p>% Solicitudes Aprobadas</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="metricEmpresasRegla">0</h3>
+        <p>Empresas en Regla</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="metricEmpresasAlerta">0</h3>
+        <p>Empresas con Alerta</p>
+      </div>
+    </div>
+
+    <div id="resumenProcomer"></div>
+  </main>
+
+  <script type="module" src="../js/modules/dashboard.js"></script>
+</body>
+</html>

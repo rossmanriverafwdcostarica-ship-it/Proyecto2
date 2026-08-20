@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ZoFranca CR - Reporte de Cumplimiento</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/cumplimiento.css">
+</head>
+<body>
+  <div id="loading" class="hidden">Cargando...</div>
+  <div id="notification"></div>
+
+  <main class="container">
+    <h1>Reporte Periódico de Cumplimiento</h1>
+    <form id="formReporte">
+      <div class="form-group">
+        <label for="empresaSelect">Seleccionar Empresa Instalada:</label>
+        <select id="empresaSelect" required>
+          <option value="">Cargando empresas...</option>
+        </select>
+      </div>
+
+      <div class="compromisos-panel">
+        <h4>Compromisos Aprobados en Solicitud Inicial</h4>
+        <p>Empleos Comprometidos: <strong id="empleosComprometidos">0</strong></p>
+        <p>Inversión Comprometida: <strong id="inversionComprometida">$0</strong></p>
+      </div>
+
+      <div class="form-group">
+        <label for="empleosReales">Empleos Reales Generados:</label>
+        <input type="number" id="empleosReales" required min="0">
+      </div>
+
+      <div class="form-group">
+        <label for="inversionEjecutada">Inversión Ejecutada ($):</label>
+        <input type="number" id="inversionEjecutada" required min="0" step="0.01">
+      </div>
+
+      <div class="form-group">
+        <label for="exportaciones">Exportaciones Totales ($):</label>
+        <input type="number" id="exportaciones" required min="0" step="0.01">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Registrar Reporte</button>
+    </form>
+  </main>
+
+  <script type="module" src="../js/modules/cumplimiento.js"></script>
+</body>
+</html>
