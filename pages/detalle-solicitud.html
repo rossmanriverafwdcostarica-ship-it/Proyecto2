@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalle de solicitud y decisión del analista en ZoFranca CR">
+    <title>Detalle de solicitud | ZoFranca CR</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/solicitudes.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="../index.html">
+                <span class="brand-mark">ZF</span>
+                <span>ZoFranca CR</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+                Menú
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+                <a href="../index.html">Inicio</a>
+                <a href="./solicitud.html">Nueva solicitud</a>
+                <a href="./solicitudes.html" class="active">Solicitudes</a>
+                <a href="./reporte-cumplimiento.html">Cumplimiento</a>
+                <a href="./alertas.html">Alertas</a>
+                <a href="./historial.html">Historial</a>
+                <a href="./dashboard.html">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-banner">
+            <div class="container">
+                <p class="eyebrow">Revisión</p>
+                <h1>Detalle de solicitud</h1>
+                <p>
+                    Revise los datos, la recomendación de IA y registre la decisión final del analista.
+                </p>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="actions-row">
+                <a class="button button-secondary" href="./solicitudes.html">← Volver al listado</a>
+                <span id="estado-carga-detalle" class="loading-inline">
+                    <span class="spinner" aria-hidden="true"></span>
+                    Cargando solicitud...
+                </span>
+            </div>
+
+            <div id="mensaje-detalle" class="message hidden" role="status" aria-live="polite"></div>
+
+            <div id="contenido-detalle" class="detail-grid hidden">
+                <div>
+                    <article class="panel">
+                        <div class="section-heading">
+                            <div>
+                                <p class="eyebrow">Información</p>
+                                <h2>Datos registrados</h2>
+                            </div>
+                            <span id="detalle-estado" class="status-badge"></span>
+                        </div>
+
+                        <dl class="detail-list">
+                            <div class="detail-item">
+                                <dt>Empresa</dt>
+                                <dd id="detalle-empresa">—</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Sector</dt>
+                                <dd id="detalle-sector">—</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Zona franca</dt>
+                                <dd id="detalle-zona">—</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Fecha</dt>
+                                <dd id="detalle-fecha">—</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Inversión proyectada</dt>
+                                <dd id="detalle-inversion">—</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Empleos proyectados</dt>
+                                <dd id="detalle-empleos">—</dd>
+                            </div>
+                        </dl>
+
+                        <div class="divider"></div>
+
+                        <h3>Documentos</h3>
+                        <ul id="detalle-documentos" class="document-list"></ul>
+                    </article>
+
+                    <article class="panel section">
+                        <p class="eyebrow">IA simulada</p>
+                        <h2>Evaluación automática</h2>
+
+                        <div class="ai-score-box">
+                            <div>
+                                <span class="muted">Puntaje IA</span>
+                                <div id="ia-puntaje" class="ai-score-number">—</div>
+                            </div>
+                            <div>
+                                <span class="muted">Clasificación sugerida</span>
+                                <div>
+                                    <span id="ia-clasificacion" class="status-badge">Sin evaluar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Justificación</h3>
+                        <div id="ia-justificacion" class="justification">
+                            Cargando evaluación...
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="panel human-decision">
+                    <p class="eyebrow">Control humano</p>
+                    <h2>Decisión del analista</h2>
+
+                    <div class="principle">
+                        La IA recomienda. La decisión final corresponde al analista humano.
+                    </div>
+
+                    <div id="decision-actual"></div>
+
+                    <div id="mensaje-decision" class="message hidden" role="status" aria-live="polite"></div>
+
+                    <div class="form-group">
+                        <label class="required" for="analista">Analista</label>
+                        <input
+                            class="form-control"
+                            id="analista"
+                            type="text"
+                            maxlength="100"
+                            data-decision-control
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required" for="decision">Decisión</label>
+                        <select class="form-control" id="decision" data-decision-control>
+                            <option value="">Seleccione una decisión</option>
+                            <option value="Recomendada">Recomendada</option>
+                            <option value="Revisar">Revisar</option>
+                            <option value="Rechazada">Rechazada</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observacion">Observación</label>
+                        <textarea
+                            class="form-control"
+                            id="observacion"
+                            maxlength="500"
+                            placeholder="Explique brevemente la decisión cuando corresponda."
+                            data-decision-control
+                        ></textarea>
+                    </div>
+
+                    <div class="decision-buttons">
+                        <button
+                            id="btn-confirmar-ia"
+                            class="button button-primary"
+                            type="button"
+                            data-decision-control
+                            data-decision-button
+                        >
+                            Confirmar sugerencia IA
+                        </button>
+
+                        <button
+                            id="btn-guardar-decision"
+                            class="button button-secondary"
+                            type="button"
+                            data-decision-control
+                            data-decision-button
+                        >
+                            Guardar decisión seleccionada
+                        </button>
+
+                        <button
+                            id="btn-rechazar-ia"
+                            class="button button-danger"
+                            type="button"
+                            data-decision-control
+                            data-decision-button
+                        >
+                            Rechazar sugerencia
+                        </button>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>ZoFranca CR · Proyecto académico</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/modules/detalleSolicitud.js"></script>
+</body>
+</html>

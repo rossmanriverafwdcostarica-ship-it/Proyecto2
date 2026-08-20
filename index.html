@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ZoFranca CR - Gestión académica de solicitudes para zonas francas">
+    <title>ZoFranca CR</title>
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/solicitudes.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="./index.html" aria-label="Ir al inicio de ZoFranca CR">
+                <span class="brand-mark">ZF</span>
+                <span>ZoFranca CR</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+                Menú
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+                <a href="./index.html" class="active">Inicio</a>
+                <a href="./pages/solicitud.html">Nueva solicitud</a>
+                <a href="./pages/solicitudes.html">Solicitudes</a>
+                <a href="./pages/reporte-cumplimiento.html">Cumplimiento</a>
+                <a href="./pages/alertas.html">Alertas</a>
+                <a href="./pages/historial.html">Historial</a>
+                <a href="./pages/dashboard.html">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <p class="eyebrow">Plataforma administrativa académica</p>
+                    <h1>Gestión de solicitudes para ZoFranca CR</h1>
+                    <p class="hero-text">
+                        Registre solicitudes de instalación, evalúelas mediante una IA simulada
+                        y mantenga siempre la decisión final bajo responsabilidad de un analista humano.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="./pages/solicitud.html">Crear solicitud</a>
+                        <a class="button button-secondary" href="./pages/solicitudes.html">Ver solicitudes</a>
+                    </div>
+                </div>
+
+                <aside class="hero-card" aria-label="Resumen del flujo">
+                    <h2>Flujo principal</h2>
+                    <ol class="step-list">
+                        <li>Registrar la zona franca y sus criterios mínimos.</li>
+                        <li>Enviar la solicitud de instalación.</li>
+                        <li>Evaluar inversión, empleo y sector con IA simulada.</li>
+                        <li>Revisar la recomendación y registrar la decisión humana.</li>
+                    </ol>
+                </aside>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Módulo de Solicitudes e IA</p>
+                    <h2>Funciones disponibles</h2>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <article class="card">
+                    <span class="feature-number">01</span>
+                    <h3>Nueva solicitud</h3>
+                    <p>Registre datos de la empresa, sector, inversión, empleos y documentos de respaldo.</p>
+                    <a class="text-link" href="./pages/solicitud.html">Abrir formulario →</a>
+                </article>
+
+                <article class="card">
+                    <span class="feature-number">02</span>
+                    <h3>Evaluación con IA</h3>
+                    <p>Procese solicitudes pendientes con una puntuación de 0 a 100 y clasificación automática.</p>
+                    <a class="text-link" href="./pages/solicitudes.html">Procesar solicitudes →</a>
+                </article>
+
+                <article class="card">
+                    <span class="feature-number">03</span>
+                    <h3>Decisión del analista</h3>
+                    <p>Confirme, cambie o rechace la recomendación sin borrar la clasificación original de IA.</p>
+                    <a class="text-link" href="./pages/solicitudes.html">Revisar solicitudes →</a>
+                </article>
+            </div>
+
+            <div class="notice notice-info">
+                <strong>Principio del sistema:</strong>
+                La IA recomienda. La decisión final corresponde al analista humano.
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>ZoFranca CR · Proyecto académico</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector(".nav-toggle");
+        const nav = document.querySelector("#main-nav");
+
+        if (toggle && nav) {
+            toggle.addEventListener("click", () => {
+                const open = nav.classList.toggle("open");
+                toggle.setAttribute("aria-expanded", String(open));
+            });
+        }
+    </script>
+</body>
+</html>

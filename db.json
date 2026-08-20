@@ -1,0 +1,70 @@
+{
+  "zonasFrancas": [
+    {
+      "id": 1,
+      "nombre": "Zona Demo Central",
+      "inversionMinima": 50000,
+      "empleosMinimos": 10,
+      "sectoresPermitidos": [
+        "tecnologia",
+        "manufactura",
+        "bpo"
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Zona Demo Pacífico",
+      "inversionMinima": 75000,
+      "empleosMinimos": 20,
+      "sectoresPermitidos": [
+        "logistica",
+        "manufactura",
+        "servicios"
+      ]
+    }
+  ],
+  "solicitudes": [
+    {
+      "id": 1,
+      "empresa": "Tech Demo CR",
+      "sector": "tecnologia",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 25,
+      "documentos": [
+        {
+          "nombre": "plan-inversion.pdf",
+          "tipo": "application/pdf",
+          "tamano": 125000,
+          "ultimaModificacion": 1787200000000
+        }
+      ],
+      "zonaFrancaId": 1,
+      "estado": "pendiente",
+      "puntajeIA": null,
+      "justificacionIA": "",
+      "clasificacionIA": "",
+      "decisionFinal": "",
+      "analista": "",
+      "fechaSolicitud": "2026-08-20T15:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "empresa": "Manufactura Ejemplo",
+      "sector": "manufactura",
+      "inversionProyectada": 40000,
+      "empleosProyectados": 8,
+      "documentos": [],
+      "zonaFrancaId": 1,
+      "estado": "pendiente",
+      "puntajeIA": null,
+      "justificacionIA": "",
+      "clasificacionIA": "",
+      "decisionFinal": "",
+      "analista": "",
+      "fechaSolicitud": "2026-08-19T14:30:00.000Z"
+    }
+  ],
+  "empresas": [],
+  "reportesCumplimiento": [],
+  "decisiones": []
+}

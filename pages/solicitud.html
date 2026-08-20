@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registro de solicitudes de instalación en ZoFranca CR">
+    <title>Nueva solicitud | ZoFranca CR</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/solicitudes.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="../index.html">
+                <span class="brand-mark">ZF</span>
+                <span>ZoFranca CR</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+                Menú
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+                <a href="../index.html">Inicio</a>
+                <a href="./solicitud.html" class="active">Nueva solicitud</a>
+                <a href="./solicitudes.html">Solicitudes</a>
+                <a href="./reporte-cumplimiento.html">Cumplimiento</a>
+                <a href="./alertas.html">Alertas</a>
+                <a href="./historial.html">Historial</a>
+                <a href="./dashboard.html">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-banner">
+            <div class="container">
+                <p class="eyebrow">Solicitudes</p>
+                <h1>Nueva solicitud de instalación</h1>
+                <p>
+                    Registre la información requerida. La solicitud se guardará como pendiente
+                    hasta que sea evaluada mediante la IA simulada.
+                </p>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="content-grid">
+                <div class="form-card">
+                    <h2>Datos de la solicitud</h2>
+                    <p class="form-description">
+                        Todos los campos marcados con * son obligatorios.
+                    </p>
+
+                    <div id="mensaje-solicitud" class="message hidden" role="status" aria-live="polite"></div>
+
+                    <form id="form-solicitud" novalidate>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="required" for="empresa">Empresa</label>
+                                <input class="form-control" id="empresa" name="empresa" type="text" maxlength="120" autocomplete="organization">
+                                <span class="field-error" data-error-for="empresa"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="required" for="sector">Sector</label>
+                                <input class="form-control" id="sector" name="sector" type="text" maxlength="80" placeholder="Ej. tecnologia">
+                                <span class="field-error" data-error-for="sector"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="required" for="zonaFrancaId">Zona franca</label>
+                                <select class="form-control" id="zonaFrancaId" name="zonaFrancaId" disabled>
+                                    <option value="">Cargando zonas...</option>
+                                </select>
+                                <span class="field-error" data-error-for="zonaFrancaId"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="required" for="inversionProyectada">Inversión proyectada</label>
+                                <input class="form-control" id="inversionProyectada" name="inversionProyectada" type="number" min="0" step="0.01">
+                                <span class="field-error" data-error-for="inversionProyectada"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="required" for="empleosProyectados">Empleos proyectados</label>
+                                <input class="form-control" id="empleosProyectados" name="empleosProyectados" type="number" min="0" step="1">
+                                <span class="field-error" data-error-for="empleosProyectados"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="documentos">Documentos de respaldo</label>
+                                <input class="form-control" id="documentos" name="documentos" type="file" multiple>
+                                <span class="help-text">
+                                    Para este proyecto con json-server se guardan los metadatos de los archivos.
+                                </span>
+                            </div>
+
+                            <div class="form-group full">
+                                <div class="actions-row">
+                                    <button class="button button-primary" type="submit">Enviar solicitud</button>
+                                    <button class="button button-secondary" type="reset">Limpiar formulario</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <aside class="panel">
+                    <h2>Registrar zona franca</h2>
+                    <p class="form-description">
+                        Agregue nuevas zonas sin modificar el código de la aplicación.
+                    </p>
+
+                    <div id="mensaje-zona" class="message hidden" role="status" aria-live="polite"></div>
+
+                    <form id="form-zona" novalidate>
+                        <div class="form-group">
+                            <label class="required" for="nombre">Nombre</label>
+                            <input class="form-control" id="nombre" name="nombre" type="text" maxlength="120">
+                            <span class="field-error" data-error-for="nombre"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required" for="inversionMinima">Inversión mínima</label>
+                            <input class="form-control" id="inversionMinima" name="inversionMinima" type="number" min="0" step="0.01">
+                            <span class="field-error" data-error-for="inversionMinima"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required" for="empleosMinimos">Empleos mínimos</label>
+                            <input class="form-control" id="empleosMinimos" name="empleosMinimos" type="number" min="0" step="1">
+                            <span class="field-error" data-error-for="empleosMinimos"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required" for="sectoresPermitidos">Sectores permitidos</label>
+                            <input class="form-control" id="sectoresPermitidos" name="sectoresPermitidos" type="text" placeholder="tecnologia, manufactura, bpo">
+                            <span class="help-text">Separe cada sector con una coma.</span>
+                            <span class="field-error" data-error-for="sectoresPermitidos"></span>
+                        </div>
+
+                        <div class="actions-row">
+                            <button class="button button-secondary" type="submit">Registrar zona</button>
+                        </div>
+                    </form>
+
+                    <div class="divider"></div>
+
+                    <h3>Criterios de evaluación</h3>
+                    <ul class="panel-list">
+                        <li>Sector permitido: máximo 40 puntos.</li>
+                        <li>Inversión proyectada: máximo 30 puntos.</li>
+                        <li>Empleos proyectados: máximo 30 puntos.</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>ZoFranca CR · Proyecto académico</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/modules/solicitudes.js"></script>
+</body>
+</html>
