@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Listado y evaluación de solicitudes en ZoFranca CR">
+    <title>Solicitudes | ZoFranca CR</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/solicitudes.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="../index.html">
+                <span class="brand-mark">ZF</span>
+                <span>ZoFranca CR</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+                Menú
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+                <a href="../index.html">Inicio</a>
+                <a href="./solicitud.html">Nueva solicitud</a>
+                <a href="./solicitudes.html" class="active">Solicitudes</a>
+                <a href="./reporte-cumplimiento.html">Cumplimiento</a>
+                <a href="./alertas.html">Alertas</a>
+                <a href="./historial.html">Historial</a>
+                <a href="./dashboard.html">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-banner">
+            <div class="container">
+                <p class="eyebrow">Solicitudes</p>
+                <h1>Listado y evaluación</h1>
+                <p>
+                    Consulte las solicitudes registradas, aplique filtros y evalúe todas las pendientes
+                    en paralelo mediante Promise.all.
+                </p>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Gestión</p>
+                    <h2>Solicitudes registradas</h2>
+                </div>
+
+                <div class="actions-row">
+                    <a class="button button-secondary" href="./solicitud.html">Nueva solicitud</a>
+                    <button id="btn-evaluar-pendientes" class="button button-primary" type="button">
+                        Evaluar pendientes
+                    </button>
+                </div>
+            </div>
+
+            <div id="mensaje-listado" class="message hidden" role="status" aria-live="polite"></div>
+
+            <div id="estado-carga-listado" class="loading-inline hidden" aria-live="polite">
+                <span class="spinner" aria-hidden="true"></span>
+                Consultando información...
+            </div>
+
+            <div class="panel">
+                <div class="filters">
+                    <div class="form-group">
+                        <label for="filtro-estado">Estado</label>
+                        <select class="form-control" id="filtro-estado">
+                            <option value="">Todos</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="evaluada">Evaluada</option>
+                            <option value="decidida">Decidida</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filtro-zona">Zona</label>
+                        <select class="form-control" id="filtro-zona">
+                            <option value="">Todas las zonas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filtro-sector">Sector</label>
+                        <select class="form-control" id="filtro-sector">
+                            <option value="">Todos los sectores</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filtro-fecha">Fecha</label>
+                        <input class="form-control" id="filtro-fecha" type="date">
+                    </div>
+                </div>
+
+                <div class="actions-row">
+                    <button id="btn-limpiar-filtros" class="button button-ghost button-small" type="button">
+                        Limpiar filtros
+                    </button>
+                    <span id="contador-resultados" class="result-count">0 resultados</span>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="table-wrap">
+                    <table id="tabla-solicitudes" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Sector</th>
+                                <th>Zona</th>
+                                <th>Fecha</th>
+                                <th>Puntaje IA</th>
+                                <th>Clasificación IA</th>
+                                <th>Decisión final</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="9">
+                                    <div class="empty-state">Cargando solicitudes...</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="notice notice-info">
+                <strong>Importante:</strong>
+                la clasificación generada por IA no se utiliza como decisión final. El analista debe revisar cada solicitud.
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>ZoFranca CR · Proyecto académico</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/modules/solicitudes.js"></script>
+</body>
+</html>
