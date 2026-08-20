@@ -1,0 +1,70 @@
+/* ==========================================================
+   MÓDULO: ALERTAS Y CUMPLIMIENTO
+   ========================================================== */
+#contenedorAlertas {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.alerta-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--info);
+    border-radius: var(--radius-small);
+    box-shadow: 0 4px 12px rgba(18, 40, 61, 0.05);
+}
+
+/* Modificadores de severidad */
+.alerta-card.alta {
+    border-left-color: var(--danger);
+    background: var(--danger-soft);
+}
+
+.alerta-card.media {
+    border-left-color: var(--warning);
+    background: var(--warning-soft);
+}
+
+.alerta-card.baja {
+    border-left-color: var(--success);
+    background: var(--success-soft);
+}
+
+.alerta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.alerta-titulo {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.alerta-fecha {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.alerta-body {
+    font-size: 14px;
+    color: var(--text);
+    margin: 0 0 16px 0;
+}
+
+@media (max-width: 640px) {
+    .alerta-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
