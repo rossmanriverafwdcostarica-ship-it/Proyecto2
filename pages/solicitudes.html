@@ -5,71 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Listado y evaluación de solicitudes en ZoFranca CR">
     <title>Solicitudes | ZoFranca CR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/solicitudes.css">
 </head>
-<body>
+<body class="app-shell page-request-list">
     <header class="site-header">
-        <div class="container header-content">
+        <div class="header-content">
             <a class="brand" href="../index.html">
                 <span class="brand-mark">ZF</span>
-                <span>ZoFranca CR</span>
+                <span class="brand-copy"><strong>ZoFranca CR</strong><small>Administración FTZ</small></span>
             </a>
-
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-                Menú
-            </button>
-
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menú</button>
             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
-                <a href="../index.html">Inicio</a>
-                <a href="./solicitud.html">Nueva solicitud</a>
-                <a href="./solicitudes.html" class="active">Solicitudes</a>
-                <a href="./reporte-cumplimiento.html">Cumplimiento</a>
-                <a href="./alertas.html">Alertas</a>
-                <a href="./historial.html">Historial</a>
-                <a href="./dashboard.html">Dashboard</a>
+                <a href="./dashboard.html"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+                <a href="./solicitudes.html" class="active"><span class="material-symbols-outlined">description</span>Solicitudes</a>
+                <a href="./solicitud.html"><span class="material-symbols-outlined">add_circle</span>Nueva Solicitud</a>
+                <a href="./reporte-cumplimiento.html"><span class="material-symbols-outlined">verified_user</span>Cumplimiento</a>
+                <a href="./alertas.html"><span class="material-symbols-outlined">notifications_active</span>Alertas</a>
+                <a href="./historial.html"><span class="material-symbols-outlined">history</span>Historial</a>
             </nav>
+            <div class="nav-spacer"></div>
+            <a class="sidebar-support" href="#"><span class="material-symbols-outlined">support_agent</span>Soporte Técnico</a>
+            <div class="sidebar-footer">
+                <a href="#"><span class="material-symbols-outlined">settings</span>Configuración</a>
+                <a href="#"><span class="material-symbols-outlined">logout</span>Cerrar Sesión</a>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section class="page-banner">
-            <div class="container">
-                <p class="eyebrow">Solicitudes</p>
-                <h1>Listado y evaluación</h1>
-                <p>
-                    Consulte las solicitudes registradas, aplique filtros y evalúe todas las pendientes
-                    en paralelo mediante Promise.all.
-                </p>
-            </div>
-        </section>
+    <div class="topbar">
+        <label class="topbar-search"><span class="material-symbols-outlined">search</span><input type="search" placeholder="Buscar solicitudes, empresas..."></label>
+        <div class="topbar-actions">
+            <button class="icon-button" type="button" aria-label="Notificaciones"><span class="material-symbols-outlined">notifications</span></button>
+            <button class="icon-button" type="button" aria-label="Ayuda"><span class="material-symbols-outlined">help_outline</span></button>
+            <div class="user-block"><div class="user-meta"><strong>Admin User</strong><span>Supervisor FTZ</span></div><div class="user-avatar"><span class="material-symbols-outlined">person</span></div></div>
+        </div>
+    </div>
 
-        <section class="container section">
-            <div class="section-heading">
+    <main class="app-main">
+        <div class="app-content">
+            <div class="page-heading">
                 <div>
-                    <p class="eyebrow">Gestión</p>
-                    <h2>Solicitudes registradas</h2>
+                    <h1>Listado de Solicitudes</h1>
+                    <p>Gestión y evaluación de trámites de régimen de Zona Franca.</p>
                 </div>
-
                 <div class="actions-row">
-                    <a class="button button-secondary" href="./solicitud.html">Nueva solicitud</a>
-                    <button id="btn-evaluar-pendientes" class="button button-primary" type="button">
-                        Evaluar pendientes
-                    </button>
+                    <button id="btn-evaluar-pendientes" class="button button-primary" type="button"><span class="material-symbols-outlined">memory</span>Evaluar solicitudes pendientes</button>
                 </div>
             </div>
 
             <div id="mensaje-listado" class="message hidden" role="status" aria-live="polite"></div>
+            <div id="estado-carga-listado" class="loading-inline hidden" aria-live="polite"><span class="spinner" aria-hidden="true"></span>Consultando información...</div>
 
-            <div id="estado-carga-listado" class="loading-inline hidden" aria-live="polite">
-                <span class="spinner" aria-hidden="true"></span>
-                Consultando información...
-            </div>
-
-            <div class="panel">
+            <section class="panel filters-panel">
                 <div class="filters">
                     <div class="form-group">
-                        <label for="filtro-estado">Estado</label>
+                        <label for="filtro-estado">Estado IA</label>
                         <select class="form-control" id="filtro-estado">
                             <option value="">Todos</option>
                             <option value="pendiente">Pendiente</option>
@@ -77,74 +69,53 @@
                             <option value="decidida">Decidida</option>
                         </select>
                     </div>
-
                     <div class="form-group">
-                        <label for="filtro-zona">Zona</label>
-                        <select class="form-control" id="filtro-zona">
-                            <option value="">Todas las zonas</option>
-                        </select>
+                        <label for="filtro-zona">Zona Franca</label>
+                        <select class="form-control" id="filtro-zona"><option value="">Todas</option></select>
                     </div>
-
                     <div class="form-group">
                         <label for="filtro-sector">Sector</label>
-                        <select class="form-control" id="filtro-sector">
-                            <option value="">Todos los sectores</option>
-                        </select>
+                        <select class="form-control" id="filtro-sector"><option value="">Todos</option></select>
                     </div>
-
                     <div class="form-group">
-                        <label for="filtro-fecha">Fecha</label>
+                        <label for="filtro-fecha">Fecha de Ingreso</label>
                         <input class="form-control" id="filtro-fecha" type="date">
                     </div>
+                    <button id="btn-limpiar-filtros" class="button button-ghost" type="button"><span class="material-symbols-outlined">filter_alt_off</span>Limpiar Filtros</button>
                 </div>
+            </section>
 
-                <div class="actions-row">
-                    <button id="btn-limpiar-filtros" class="button button-ghost button-small" type="button">
-                        Limpiar filtros
-                    </button>
+            <div class="table-wrap">
+                <table id="tabla-solicitudes" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Sector / ZF</th>
+                            <th>Fecha</th>
+                            <th>Score IA</th>
+                            <th>Clasificación IA</th>
+                            <th>Estado actual</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="7"><div class="empty-state">Cargando solicitudes...</div></td></tr>
+                    </tbody>
+                </table>
+                <div class="table-footer">
                     <span id="contador-resultados" class="result-count">0 resultados</span>
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="table-wrap">
-                    <table id="tabla-solicitudes" class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Empresa</th>
-                                <th>Sector</th>
-                                <th>Zona</th>
-                                <th>Fecha</th>
-                                <th>Puntaje IA</th>
-                                <th>Clasificación IA</th>
-                                <th>Decisión final</th>
-                                <th>Estado</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="9">
-                                    <div class="empty-state">Cargando solicitudes...</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="actions-row"><button class="icon-button" type="button"><span class="material-symbols-outlined">chevron_left</span></button><button class="icon-button" type="button"><span class="material-symbols-outlined">chevron_right</span></button></div>
                 </div>
             </div>
-
-            <div class="notice notice-info">
-                <strong>Importante:</strong>
-                la clasificación generada por IA no se utiliza como decisión final. El analista debe revisar cada solicitud.
-            </div>
-        </section>
+        </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>ZoFranca CR · Proyecto académico</p>
-        </div>
-    </footer>
+    <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
+        <a href="./dashboard.html"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+        <a class="active" href="./solicitudes.html"><span class="material-symbols-outlined">description</span>Solicitudes</a>
+        <a href="./reporte-cumplimiento.html"><span class="material-symbols-outlined">verified_user</span>Cumplimiento</a>
+        <a href="./alertas.html"><span class="material-symbols-outlined">notifications_active</span>Alerts</a>
+    </nav>
 
     <script type="module" src="../js/modules/solicitudes.js"></script>
 </body>

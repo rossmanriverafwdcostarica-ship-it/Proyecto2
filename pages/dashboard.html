@@ -1,40 +1,46 @@
-<!DOCTYPE html>
+npm start<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>ZoFranca CR - Dashboard y Métricas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard y Métricas | ZoFranca CR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
-<body>
-  <div id="loading" class="hidden">Cargando...</div>
-  <div id="notification"></div>
-
-  <main class="container">
-    <h1>Panel de Métricas del Proceso</h1>
-
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <h3 id="metricTotalSolicitudes">0</h3>
-        <p>Total Solicitudes</p>
-      </div>
-      <div class="metric-card">
-        <h3 id="metricPctAprobadas">0%</h3>
-        <p>% Solicitudes Aprobadas</p>
-      </div>
-      <div class="metric-card">
-        <h3 id="metricEmpresasRegla">0</h3>
-        <p>Empresas en Regla</p>
-      </div>
-      <div class="metric-card">
-        <h3 id="metricEmpresasAlerta">0</h3>
-        <p>Empresas con Alerta</p>
-      </div>
+<body class="app-shell module-page">
+  <header class="site-header">
+    <div class="header-content">
+      <a class="brand" href="./dashboard.html"><span class="brand-mark">ZF</span><span class="brand-copy"><strong>ZoFranca CR</strong><small>Administración FTZ</small></span></a>
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal"><a href="./dashboard.html" class="active"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+<a href="./solicitudes.html" class=""><span class="material-symbols-outlined">description</span>Solicitudes</a>
+<a href="./solicitud.html" class=""><span class="material-symbols-outlined">add_circle</span>Nueva Solicitud</a>
+<a href="./reporte-cumplimiento.html" class=""><span class="material-symbols-outlined">verified_user</span>Cumplimiento</a>
+<a href="./alertas.html" class=""><span class="material-symbols-outlined">notifications_active</span>Alertas</a>
+<a href="./historial.html" class=""><span class="material-symbols-outlined">history</span>Historial</a></nav>
+      <div class="nav-spacer"></div>
+      <a class="sidebar-support" href="#"><span class="material-symbols-outlined">support_agent</span>Soporte Técnico</a>
+      <div class="sidebar-footer"><a href="#"><span class="material-symbols-outlined">settings</span>Configuración</a><a href="#"><span class="material-symbols-outlined">logout</span>Cerrar Sesión</a></div>
     </div>
-
-    <div id="resumenProcomer"></div>
+  </header>
+  <div class="topbar">
+    <label class="topbar-search"><span class="material-symbols-outlined">search</span><input type="search" placeholder="Buscar expedientes..."></label>
+    <div class="topbar-actions"><button class="icon-button" type="button"><span class="material-symbols-outlined">notifications</span></button><button class="icon-button" type="button"><span class="material-symbols-outlined">help_outline</span></button><div class="user-block"><div class="user-meta"><strong>Analista Principal</strong><span>Admin Nivel 2</span></div><div class="user-avatar"><span class="material-symbols-outlined">person</span></div></div></div>
+  </div>
+  <main class="app-main">
+    <div class="app-content">
+      <div id="loading" class="server-loading hidden"><span class="spinner"></span>Consultando servidor...</div>
+      <div id="notification" class="notification hidden" role="status" aria-live="polite"></div>
+      <div class="module-heading"><div><span class="module-kicker">ZoFranca CR</span><h1>Dashboard y Métricas</h1><p>Vista consolidada de solicitudes, empresas instaladas y cumplimiento.</p></div><a class="server-pill" href="../health" target="_blank"><span class="material-symbols-outlined">dns</span>Node :3001</a></div>
+      <section class="metrics-grid">
+  <article class="metric-card"><div class="metric-icon"><span class="material-symbols-outlined">description</span></div><div><span>Total Solicitudes</span><strong id="metricTotalSolicitudes">0</strong></div></article>
+  <article class="metric-card"><div class="metric-icon"><span class="material-symbols-outlined">task_alt</span></div><div><span>% Solicitudes Aprobadas</span><strong id="metricPctAprobadas">0%</strong></div></article>
+  <article class="metric-card"><div class="metric-icon"><span class="material-symbols-outlined">verified</span></div><div><span>Empresas en Regla</span><strong id="metricEmpresasRegla">0</strong></div></article>
+  <article class="metric-card"><div class="metric-icon alert"><span class="material-symbols-outlined">warning</span></div><div><span>Empresas con Alerta</span><strong id="metricEmpresasAlerta">0</strong></div></article>
+</section><section id="resumenProcomer" class="module-section"></section>
+    </div>
   </main>
-
+  <nav class="mobile-bottom-nav" aria-label="Navegación móvil"><a href="./dashboard.html"><span class="material-symbols-outlined">dashboard</span>Dashboard</a><a href="./solicitudes.html"><span class="material-symbols-outlined">description</span>Solicitudes</a><a href="./reporte-cumplimiento.html"><span class="material-symbols-outlined">verified_user</span>Cumplimiento</a><a href="./alertas.html"><span class="material-symbols-outlined">notifications_active</span>Alertas</a></nav>
   <script type="module" src="../js/modules/dashboard.js"></script>
 </body>
 </html>

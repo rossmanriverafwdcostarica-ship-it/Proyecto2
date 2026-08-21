@@ -356,12 +356,14 @@ function renderTabla(datos) {
         return;
     }
 
-    contador.textContent = `${datos.length} resultado${datos.length === 1 ? "" : "s"}`;
+    if (contador) {
+        contador.textContent = `Mostrando ${datos.length} solicitud${datos.length === 1 ? "" : "es"}`;
+    }
 
     if (datos.length === 0) {
         tbody.innerHTML = `
             <tr>
-                <td colspan="9">
+                <td colspan="7">
                     <div class="empty-state">
                         No hay solicitudes que coincidan con los filtros seleccionados.
                     </div>
@@ -373,35 +375,36 @@ function renderTabla(datos) {
 
     tbody.innerHTML = datos.map((solicitud) => {
         const zona = zonas.find((item) => String(item.id) === String(solicitud.zonaFrancaId));
-        const puntaje = solicitud.puntajeIA === null || solicitud.puntajeIA === undefined
-            ? "—"
-            : escapeHTML(solicitud.puntajeIA);
+        const puntajeValor = solicitud.puntajeIA === null || solicitud.puntajeIA === undefined
+            ? null
+            : Number(solicitud.puntajeIA);
+        const puntaje = puntajeValor === null ? "—" : escapeHTML(puntajeValor);
+        const scoreClass = puntajeValor !== null && puntajeValor < 50 ? " score-low" : "";
 
         const clasificacion = solicitud.clasificacionIA
             ? `<span class="status-badge status-${claseEstado(solicitud.clasificacionIA)}">${escapeHTML(solicitud.clasificacionIA)}</span>`
-            : "Sin evaluar";
+            : `<span class="status-badge status-pendiente">Pendiente IA</span>`;
 
-        const decision = solicitud.decisionFinal
-            ? `<span class="status-badge status-${claseEstado(solicitud.decisionFinal)}">${escapeHTML(solicitud.decisionFinal)}</span>`
-            : "Pendiente";
+        const estadoActual = solicitud.decisionFinal || solicitud.estado || "pendiente";
 
         return `
             <tr>
-                <td>${escapeHTML(solicitud.empresa)}</td>
-                <td>${escapeHTML(solicitud.sector)}</td>
-                <td>${escapeHTML(zona?.nombre || "Zona no disponible")}</td>
-                <td>${escapeHTML(formatearFecha(solicitud.fechaSolicitud))}</td>
-                <td><span class="score">${puntaje}</span></td>
-                <td>${clasificacion}</td>
-                <td>${decision}</td>
                 <td>
-                    <span class="status-badge status-${claseEstado(solicitud.estado)}">
-                        ${escapeHTML(solicitud.estado)}
-                    </span>
+                    <strong>${escapeHTML(solicitud.empresa)}</strong>
+                    <small class="row-subtext">ID: REQ-${String(solicitud.id).padStart(4, "0")}</small>
                 </td>
                 <td>
+                    ${escapeHTML(solicitud.sector)}
+                    <small class="row-subtext">${escapeHTML(zona?.nombre || "Zona no disponible")}</small>
+                </td>
+                <td>${escapeHTML(formatearFecha(solicitud.fechaSolicitud))}</td>
+                <td><span class="score${scoreClass}">${puntaje}</span></td>
+                <td>${clasificacion}</td>
+                <td><span class="current-state">${escapeHTML(estadoActual)}</span></td>
+                <td>
                     <a class="button button-secondary button-small"
-                       href="./detalle-solicitud.html?id=${encodeURIComponent(solicitud.id)}">
+                       href="./detalle-solicitud.html?id=${encodeURIComponent(solicitud.id)}"
+                       aria-label="Ver detalle de ${escapeHTML(solicitud.empresa)}">
                         Ver detalle
                     </a>
                 </td>

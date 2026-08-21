@@ -1,90 +1,14 @@
-/* ==========================================================
-   MÓDULO: CUMPLIMIENTO
-   ========================================================== */
-
-.cumplimiento-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 16px;
-}
-
-.cumplimiento-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    box-shadow: var(--shadow);
-}
-
-.cumplimiento-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-/* Indicadores de porcentaje o puntaje de cumplimiento */
-.cumplimiento-score-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 14px;
-}
-
-.cumplimiento-score-badge.alto {
-    color: var(--success);
-    background: var(--success-soft);
-    border: 1px solid #abefc6;
-}
-
-.cumplimiento-score-badge.medio {
-    color: var(--warning);
-    background: var(--warning-soft);
-    border: 1px solid #fedf89;
-}
-
-.cumplimiento-score-badge.bajo {
-    color: var(--danger);
-    background: var(--danger-soft);
-    border: 1px solid #fecdca;
-}
-
-/* Tabla específica o adaptada para listados de cumplimiento */
-.tabla-cumplimiento {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--surface);
-}
-
-.tabla-cumplimiento th,
-.tabla-cumplimiento td {
-    padding: 12px 14px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-}
-
-.tabla-cumplimiento th {
-    color: #475467;
-    background: #f8fafc;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    font-weight: 800;
-}
-
-.tabla-cumplimiento tbody tr:hover {
-    background: #fbfcfd;
-}
-
-@media (max-width: 640px) {
-    .cumplimiento-header-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
+.compliance-layout { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(280px,.65fr); gap: 24px; }
+.compliance-form-card { min-width: 0; }
+.commitment-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 16px 0 20px; }
+.commitment-grid > div { padding: 16px; border: 1px solid #cfe1d9; border-radius: 8px; background: #eff8f4; }
+.commitment-grid span { display: block; color: #6a7c74; font-size: 12px; margin-bottom: 5px; }
+.commitment-grid strong { color: #123f35; font-size: 24px; }
+.flow-card { padding: 22px; border-radius: 10px; color: #e7f5ef; background: linear-gradient(145deg,#123f35,#1b5a4b); }
+.flow-card > .material-symbols-outlined { font-size: 36px; color: #84d2b8; }
+.flow-card h3 { margin: 10px 0; color: #fff; }
+.flow-card ol { margin: 0; padding-left: 20px; }
+.flow-card li + li { margin-top: 10px; }
+.module-form .actions-row { margin-top: 20px; }
+@media(max-width:900px){.compliance-layout{grid-template-columns:1fr}}
+@media(max-width:640px){.commitment-grid{grid-template-columns:1fr}}

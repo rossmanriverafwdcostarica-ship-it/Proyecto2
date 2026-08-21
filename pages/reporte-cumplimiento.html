@@ -2,49 +2,51 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>ZoFranca CR - Reporte de Cumplimiento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporte de Cumplimiento | ZoFranca CR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/cumplimiento.css">
 </head>
-<body>
-  <div id="loading" class="hidden">Cargando...</div>
-  <div id="notification"></div>
-
-  <main class="container">
-    <h1>Reporte Periódico de Cumplimiento</h1>
-    <form id="formReporte">
-      <div class="form-group">
-        <label for="empresaSelect">Seleccionar Empresa Instalada:</label>
-        <select id="empresaSelect" required>
-          <option value="">Cargando empresas...</option>
-        </select>
-      </div>
-
-      <div class="compromisos-panel">
-        <h4>Compromisos Aprobados en Solicitud Inicial</h4>
-        <p>Empleos Comprometidos: <strong id="empleosComprometidos">0</strong></p>
-        <p>Inversión Comprometida: <strong id="inversionComprometida">$0</strong></p>
-      </div>
-
-      <div class="form-group">
-        <label for="empleosReales">Empleos Reales Generados:</label>
-        <input type="number" id="empleosReales" required min="0">
-      </div>
-
-      <div class="form-group">
-        <label for="inversionEjecutada">Inversión Ejecutada ($):</label>
-        <input type="number" id="inversionEjecutada" required min="0" step="0.01">
-      </div>
-
-      <div class="form-group">
-        <label for="exportaciones">Exportaciones Totales ($):</label>
-        <input type="number" id="exportaciones" required min="0" step="0.01">
-      </div>
-
-      <button type="submit" class="btn btn-primary">Registrar Reporte</button>
+<body class="app-shell module-page">
+  <header class="site-header">
+    <div class="header-content">
+      <a class="brand" href="./dashboard.html"><span class="brand-mark">ZF</span><span class="brand-copy"><strong>ZoFranca CR</strong><small>Administración FTZ</small></span></a>
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal"><a href="./dashboard.html" class=""><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+<a href="./solicitudes.html" class=""><span class="material-symbols-outlined">description</span>Solicitudes</a>
+<a href="./solicitud.html" class=""><span class="material-symbols-outlined">add_circle</span>Nueva Solicitud</a>
+<a href="./reporte-cumplimiento.html" class="active"><span class="material-symbols-outlined">verified_user</span>Cumplimiento</a>
+<a href="./alertas.html" class=""><span class="material-symbols-outlined">notifications_active</span>Alertas</a>
+<a href="./historial.html" class=""><span class="material-symbols-outlined">history</span>Historial</a></nav>
+      <div class="nav-spacer"></div>
+      <a class="sidebar-support" href="#"><span class="material-symbols-outlined">support_agent</span>Soporte Técnico</a>
+      <div class="sidebar-footer"><a href="#"><span class="material-symbols-outlined">settings</span>Configuración</a><a href="#"><span class="material-symbols-outlined">logout</span>Cerrar Sesión</a></div>
+    </div>
+  </header>
+  <div class="topbar">
+    <label class="topbar-search"><span class="material-symbols-outlined">search</span><input type="search" placeholder="Buscar expedientes..."></label>
+    <div class="topbar-actions"><button class="icon-button" type="button"><span class="material-symbols-outlined">notifications</span></button><button class="icon-button" type="button"><span class="material-symbols-outlined">help_outline</span></button><div class="user-block"><div class="user-meta"><strong>Analista Principal</strong><span>Admin Nivel 2</span></div><div class="user-avatar"><span class="material-symbols-outlined">person</span></div></div></div>
+  </div>
+  <main class="app-main">
+    <div class="app-content">
+      <div id="loading" class="server-loading hidden"><span class="spinner"></span>Consultando servidor...</div>
+      <div id="notification" class="notification hidden" role="status" aria-live="polite"></div>
+      <div class="module-heading"><div><span class="module-kicker">ZoFranca CR</span><h1>Reporte de Cumplimiento</h1><p>Registre empleos, inversión ejecutada y exportaciones de empresas aprobadas.</p></div><a class="server-pill" href="../health" target="_blank"><span class="material-symbols-outlined">dns</span>Node :3001</a></div>
+      <section class="module-section compliance-layout">
+  <div class="compliance-form-card">
+    <div class="section-title-row"><div><h2>Nuevo reporte periódico</h2><p>Compare los valores reales contra los compromisos de la solicitud aprobada.</p></div></div>
+    <form id="formReporte" class="module-form">
+      <div class="form-group"><label for="empresaSelect">Empresa instalada</label><select class="form-control" id="empresaSelect" required><option value="">Cargando empresas...</option></select></div>
+      <div class="commitment-grid"><div><span>Empleos comprometidos</span><strong id="empleosComprometidos">0</strong></div><div><span>Inversión comprometida</span><strong id="inversionComprometida">$0</strong></div></div>
+      <div class="form-grid"><div class="form-group"><label for="empleosReales">Empleos reales</label><input class="form-control" type="number" id="empleosReales" required min="0"></div><div class="form-group"><label for="inversionEjecutada">Inversión ejecutada ($)</label><input class="form-control" type="number" id="inversionEjecutada" required min="0" step="0.01"></div><div class="form-group full"><label for="exportaciones">Exportaciones ($)</label><input class="form-control" type="number" id="exportaciones" required min="0" step="0.01"></div></div>
+      <div class="actions-row"><button type="submit" class="button button-primary"><span class="material-symbols-outlined">save</span>Registrar Reporte</button><a class="button button-secondary" href="./alertas.html">Ver Alertas</a></div>
     </form>
+  </div>
+  <aside class="flow-card"><span class="material-symbols-outlined">account_tree</span><h3>Flujo conectado</h3><ol><li>Apruebe una solicitud como Recomendada.</li><li>La empresa se habilita automáticamente.</li><li>Registre su reporte aquí.</li><li>Las alertas, historial y dashboard se actualizan desde el mismo db.json.</li></ol></aside>
+</section>
+    </div>
   </main>
-
+  <nav class="mobile-bottom-nav" aria-label="Navegación móvil"><a href="./dashboard.html"><span class="material-symbols-outlined">dashboard</span>Dashboard</a><a href="./solicitudes.html"><span class="material-symbols-outlined">description</span>Solicitudes</a><a href="./reporte-cumplimiento.html"><span class="material-symbols-outlined">verified_user</span>Cumplimiento</a><a href="./alertas.html"><span class="material-symbols-outlined">notifications_active</span>Alertas</a></nav>
   <script type="module" src="../js/modules/cumplimiento.js"></script>
 </body>
 </html>

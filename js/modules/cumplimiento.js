@@ -8,64 +8,58 @@ document.addEventListener('DOMContentLoaded', initCumplimiento);
 async function initCumplimiento() {
   const selectEmpresa = document.getElementById('empresaSelect');
   const formReporte = document.getElementById('formReporte');
+  if (!selectEmpresa || !formReporte) return;
 
   try {
     showLoading();
-    const empresas = await empresasService.getAll();
-    selectEmpresa.innerHTML = '<option value="">Seleccione una empresa...</option>' +
-      empresas.map(e => `<option value="${e.id}">${e.nombre}</option>`).join('');
+    const empresas = (await empresasService.getAll()).filter(e => e.estado === 'activa');
+    selectEmpresa.innerHTML = empresas.length
+      ? '<option value="">Seleccione una empresa...</option>' + empresas.map(e => `<option value="${e.id}">${e.nombre}</option>`).join('')
+      : '<option value="">No hay empresas aprobadas todavía</option>';
+    selectEmpresa.disabled = !empresas.length;
   } catch (err) {
     console.error('[Cumplimiento - Init Error]:', err);
-    showError('No se pudo cargar la lista de empresas. Verifique la conexión con el servidor.');
+    showError('No se pudo cargar la lista de empresas. Inicie el servidor con npm start.');
   } finally {
     hideLoading();
   }
 
-  selectEmpresa?.addEventListener('change', async (e) => {
-    const empresaId = e.target.value;
-    if (!empresaId) return;
+  selectEmpresa.addEventListener('change', () => cargarCompromisos(selectEmpresa.value));
 
-    try {
-      showLoading();
-      const empresa = await empresasService.getById(empresaId);
-      const solicitud = await solicitudesService.getById(empresa.solicitudId);
-      
-      document.getElementById('empleosComprometidos').textContent = solicitud.empleosProyectados;
-      document.getElementById('inversionComprometida').textContent = `$${solicitud.inversionProyectada.toLocaleString()}`;
-    } catch (err) {
-      console.error('[Cumplimiento - Select Empresa Error]:', err);
-      showError('Error al consultar los compromisos originales de la empresa.');
-    } finally {
-      hideLoading();
-    }
-  });
-
-  formReporte?.addEventListener('submit', async (e) => {
+  formReporte.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const empresaId = parseInt(selectEmpresa.value, 10);
-    const empleosReales = parseInt(document.getElementById('empleosReales').value, 10);
-    const inversionEjecutada = parseFloat(document.getElementById('inversionEjecutada').value);
-    const exportaciones = parseFloat(document.getElementById('exportaciones').value);
+    const empresaId = Number(selectEmpresa.value);
+    const empleosReales = Number(document.getElementById('empleosReales').value);
+    const inversionEjecutada = Number(document.getElementById('inversionEjecutada').value);
+    const exportaciones = Number(document.getElementById('exportaciones').value);
+
+    if (!empresaId || [empleosReales, inversionEjecutada, exportaciones].some(v => !Number.isFinite(v) || v < 0)) {
+      showError('Complete correctamente todos los campos del reporte.');
+      return;
+    }
 
     try {
       showLoading();
-      const empresa = await empresasService.getById(empresaId);
+      const [empresa, reportesExistentes] = await Promise.all([
+        empresasService.getById(empresaId),
+        reportesService.getAll()
+      ]);
       const solicitud = await solicitudesService.getById(empresa.solicitudId);
 
       const alertas = [];
-      if (empleosReales < solicitud.empleosProyectados) {
+      if (empleosReales < Number(solicitud.empleosProyectados || 0)) {
         alertas.push({
           tipo: 'empleos',
           mensaje: `Empleos por debajo de lo comprometido (${empleosReales} de ${solicitud.empleosProyectados})`,
-          diferencia: empleosReales - solicitud.empleosProyectados
+          diferencia: empleosReales - Number(solicitud.empleosProyectados || 0)
         });
       }
 
-      if (inversionEjecutada < solicitud.inversionProyectada) {
+      if (inversionEjecutada < Number(solicitud.inversionProyectada || 0)) {
         alertas.push({
           tipo: 'inversion',
-          mensaje: `Inversión por debajo de lo comprometido ($${inversionEjecutada.toLocaleString()} de $${solicitud.inversionProyectada.toLocaleString()})`,
-          diferencia: inversionEjecutada - solicitud.inversionProyectada
+          mensaje: `Inversión por debajo de lo comprometido ($${inversionEjecutada.toLocaleString('es-CR')} de $${Number(solicitud.inversionProyectada || 0).toLocaleString('es-CR')})`,
+          diferencia: inversionEjecutada - Number(solicitud.inversionProyectada || 0)
         });
       }
 
@@ -75,15 +69,14 @@ async function initCumplimiento() {
         inversionEjecutada,
         exportaciones,
         fechaReporte: new Date().toISOString().split('T')[0],
-        estado: alertas.length > 0 ? 'con alerta' : 'en regla',
+        estado: alertas.length ? 'con alerta' : 'en regla',
         alertas
       };
 
       await reportesService.crear(nuevoReporte);
-      showSuccess('Reporte registrado exitosamente.');
+      showSuccess(`Reporte registrado. Estado: ${nuevoReporte.estado}. Total histórico previo: ${reportesExistentes.filter(r => String(r.empresaId) === String(empresaId)).length}.`);
       formReporte.reset();
-      document.getElementById('empleosComprometidos').textContent = '0';
-      document.getElementById('inversionComprometida').textContent = '$0';
+      resetCompromisos();
     } catch (err) {
       console.error('[Cumplimiento - Submit Error]:', err);
       showError('No se pudo guardar el reporte. Intente nuevamente.');
@@ -91,4 +84,29 @@ async function initCumplimiento() {
       hideLoading();
     }
   });
+}
+
+async function cargarCompromisos(empresaId) {
+  if (!empresaId) {
+    resetCompromisos();
+    return;
+  }
+
+  try {
+    showLoading();
+    const empresa = await empresasService.getById(empresaId);
+    const solicitud = await solicitudesService.getById(empresa.solicitudId);
+    document.getElementById('empleosComprometidos').textContent = Number(solicitud.empleosProyectados || 0).toLocaleString('es-CR');
+    document.getElementById('inversionComprometida').textContent = `$${Number(solicitud.inversionProyectada || 0).toLocaleString('es-CR')}`;
+  } catch (err) {
+    console.error('[Cumplimiento - Compromisos Error]:', err);
+    showError('Error al consultar los compromisos originales de la empresa.');
+  } finally {
+    hideLoading();
+  }
+}
+
+function resetCompromisos() {
+  document.getElementById('empleosComprometidos').textContent = '0';
+  document.getElementById('inversionComprometida').textContent = '$0';
 }

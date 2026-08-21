@@ -1,58 +1,6 @@
-/* ==========================================================
-   MÓDULO: HISTORIAL (Línea de tiempo)
-   ========================================================== */
-.historial-timeline {
-    position: relative;
-    padding-left: 28px;
-    margin-top: 24px;
-}
-
-.historial-timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 9px;
-    bottom: 0;
-    width: 2px;
-    background: var(--border);
-}
-
-.historial-item {
-    position: relative;
-    padding-bottom: 28px;
-}
-
-.historial-item:last-child {
-    padding-bottom: 0;
-}
-
-.historial-item::before {
-    content: '';
-    position: absolute;
-    left: -28px;
-    top: 2px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--surface);
-    border: 3px solid var(--primary);
-    z-index: 1;
-}
-
-.historial-fecha {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 6px;
-    background: var(--primary-soft);
-    padding: 2px 8px;
-    border-radius: 4px;
-}
-
-.historial-detalle {
-    margin: 0;
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.5;
-}
+#contenedorHistorial { display: grid; gap: 20px; }
+.history-report { margin-top: 10px; padding: 12px 14px; border: 1px solid #d5e5de; border-radius: 7px; background: #f5faf8; }
+.history-report.has-alert { border-color: #efc4bc; background: #fff5f2; }
+.history-report strong { color: #123f35; }
+.history-report > span { float: right; color: #26705b; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.history-report p { margin: 6px 0 0; color: #5c7067; font-size: 13px; }

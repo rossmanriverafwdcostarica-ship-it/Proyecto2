@@ -83,3 +83,34 @@ export function claseEstado(valor) {
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/\s+/g, "-");
 }
+
+
+// Compatibilidad para módulos de cumplimiento, alertas, historial y dashboard.
+export function showLoading() {
+    const loading = document.querySelector("#loading");
+    loading?.classList.remove("hidden");
+}
+
+export function hideLoading() {
+    const loading = document.querySelector("#loading");
+    loading?.classList.add("hidden");
+}
+
+export function showError(mensaje) {
+    const notification = document.querySelector("#notification");
+    if (!notification) {
+        console.error(mensaje);
+        return;
+    }
+    notification.className = "notification-error";
+    notification.textContent = mensaje;
+    notification.classList.remove("hidden");
+}
+
+export function showSuccess(mensaje) {
+    const notification = document.querySelector("#notification");
+    if (!notification) return;
+    notification.className = "notification-success";
+    notification.textContent = mensaje;
+    notification.classList.remove("hidden");
+}

@@ -1,0 +1,1834 @@
+{
+  "descripcion": "205 registros sintéticos para pruebas académicas de ZoFranca CR",
+  "solicitudes": [
+    {
+      "id": 1,
+      "empresa": "Empresa Sintética 001",
+      "sector": "tecnologia",
+      "inversionProyectada": 45000,
+      "empleosProyectados": 55,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 2,
+      "empresa": "Empresa Sintética 002",
+      "sector": "manufactura",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 16,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 3,
+      "empresa": "Empresa Sintética 003",
+      "sector": "servicios",
+      "inversionProyectada": 55000,
+      "empleosProyectados": 45,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 4,
+      "empresa": "Empresa Sintética 004",
+      "sector": "tecnologia",
+      "inversionProyectada": 45000,
+      "empleosProyectados": 13,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 5,
+      "empresa": "Empresa Sintética 005",
+      "sector": "manufactura",
+      "inversionProyectada": 125000,
+      "empleosProyectados": 46,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 6,
+      "empresa": "Empresa Sintética 006",
+      "sector": "servicios",
+      "inversionProyectada": 75000,
+      "empleosProyectados": 53,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 7,
+      "empresa": "Empresa Sintética 007",
+      "sector": "manufactura",
+      "inversionProyectada": 115000,
+      "empleosProyectados": 45,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 8,
+      "empresa": "Empresa Sintética 008",
+      "sector": "tecnologia",
+      "inversionProyectada": 70000,
+      "empleosProyectados": 52,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 9,
+      "empresa": "Empresa Sintética 009",
+      "sector": "bpo",
+      "inversionProyectada": 85000,
+      "empleosProyectados": 17,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 10,
+      "empresa": "Empresa Sintética 010",
+      "sector": "bpo",
+      "inversionProyectada": 60000,
+      "empleosProyectados": 13,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 11,
+      "empresa": "Empresa Sintética 011",
+      "sector": "tecnologia",
+      "inversionProyectada": 100000,
+      "empleosProyectados": 62,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 12,
+      "empresa": "Empresa Sintética 012",
+      "sector": "servicios",
+      "inversionProyectada": 85000,
+      "empleosProyectados": 59,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 13,
+      "empresa": "Empresa Sintética 013",
+      "sector": "logistica",
+      "inversionProyectada": 130000,
+      "empleosProyectados": 15,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 14,
+      "empresa": "Empresa Sintética 014",
+      "sector": "tecnologia",
+      "inversionProyectada": 130000,
+      "empleosProyectados": 26,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 15,
+      "empresa": "Empresa Sintética 015",
+      "sector": "servicios",
+      "inversionProyectada": 75000,
+      "empleosProyectados": 53,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 16,
+      "empresa": "Empresa Sintética 016",
+      "sector": "tecnologia",
+      "inversionProyectada": 150000,
+      "empleosProyectados": 22,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 17,
+      "empresa": "Empresa Sintética 017",
+      "sector": "tecnologia",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 63,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 18,
+      "empresa": "Empresa Sintética 018",
+      "sector": "logistica",
+      "inversionProyectada": 85000,
+      "empleosProyectados": 37,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 19,
+      "empresa": "Empresa Sintética 019",
+      "sector": "manufactura",
+      "inversionProyectada": 100000,
+      "empleosProyectados": 30,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 20,
+      "empresa": "Empresa Sintética 020",
+      "sector": "bpo",
+      "inversionProyectada": 155000,
+      "empleosProyectados": 67,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 21,
+      "empresa": "Empresa Sintética 021",
+      "sector": "servicios",
+      "inversionProyectada": 145000,
+      "empleosProyectados": 18,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 22,
+      "empresa": "Empresa Sintética 022",
+      "sector": "manufactura",
+      "inversionProyectada": 115000,
+      "empleosProyectados": 32,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 23,
+      "empresa": "Empresa Sintética 023",
+      "sector": "servicios",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 51,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 24,
+      "empresa": "Empresa Sintética 024",
+      "sector": "tecnologia",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 60,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 25,
+      "empresa": "Empresa Sintética 025",
+      "sector": "bpo",
+      "inversionProyectada": 105000,
+      "empleosProyectados": 25,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 26,
+      "empresa": "Empresa Sintética 026",
+      "sector": "manufactura",
+      "inversionProyectada": 135000,
+      "empleosProyectados": 64,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 27,
+      "empresa": "Empresa Sintética 027",
+      "sector": "manufactura",
+      "inversionProyectada": 145000,
+      "empleosProyectados": 39,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 28,
+      "empresa": "Empresa Sintética 028",
+      "sector": "logistica",
+      "inversionProyectada": 65000,
+      "empleosProyectados": 24,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 29,
+      "empresa": "Empresa Sintética 029",
+      "sector": "manufactura",
+      "inversionProyectada": 130000,
+      "empleosProyectados": 42,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 30,
+      "empresa": "Empresa Sintética 030",
+      "sector": "servicios",
+      "inversionProyectada": 110000,
+      "empleosProyectados": 65,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 31,
+      "empresa": "Empresa Sintética 031",
+      "sector": "bpo",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 16,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 32,
+      "empresa": "Empresa Sintética 032",
+      "sector": "tecnologia",
+      "inversionProyectada": 50000,
+      "empleosProyectados": 63,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 33,
+      "empresa": "Empresa Sintética 033",
+      "sector": "manufactura",
+      "inversionProyectada": 145000,
+      "empleosProyectados": 18,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 34,
+      "empresa": "Empresa Sintética 034",
+      "sector": "servicios",
+      "inversionProyectada": 55000,
+      "empleosProyectados": 32,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 35,
+      "empresa": "Empresa Sintética 035",
+      "sector": "servicios",
+      "inversionProyectada": 115000,
+      "empleosProyectados": 41,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 36,
+      "empresa": "Empresa Sintética 036",
+      "sector": "servicios",
+      "inversionProyectada": 45000,
+      "empleosProyectados": 51,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 37,
+      "empresa": "Empresa Sintética 037",
+      "sector": "servicios",
+      "inversionProyectada": 85000,
+      "empleosProyectados": 57,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 38,
+      "empresa": "Empresa Sintética 038",
+      "sector": "tecnologia",
+      "inversionProyectada": 90000,
+      "empleosProyectados": 35,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 39,
+      "empresa": "Empresa Sintética 039",
+      "sector": "logistica",
+      "inversionProyectada": 45000,
+      "empleosProyectados": 69,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 40,
+      "empresa": "Empresa Sintética 040",
+      "sector": "servicios",
+      "inversionProyectada": 70000,
+      "empleosProyectados": 40,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 41,
+      "empresa": "Empresa Sintética 041",
+      "sector": "bpo",
+      "inversionProyectada": 145000,
+      "empleosProyectados": 40,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 42,
+      "empresa": "Empresa Sintética 042",
+      "sector": "manufactura",
+      "inversionProyectada": 100000,
+      "empleosProyectados": 56,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 43,
+      "empresa": "Empresa Sintética 043",
+      "sector": "servicios",
+      "inversionProyectada": 125000,
+      "empleosProyectados": 66,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 44,
+      "empresa": "Empresa Sintética 044",
+      "sector": "servicios",
+      "inversionProyectada": 95000,
+      "empleosProyectados": 39,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 45,
+      "empresa": "Empresa Sintética 045",
+      "sector": "tecnologia",
+      "inversionProyectada": 100000,
+      "empleosProyectados": 64,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 46,
+      "empresa": "Empresa Sintética 046",
+      "sector": "manufactura",
+      "inversionProyectada": 50000,
+      "empleosProyectados": 23,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 47,
+      "empresa": "Empresa Sintética 047",
+      "sector": "tecnologia",
+      "inversionProyectada": 120000,
+      "empleosProyectados": 60,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 48,
+      "empresa": "Empresa Sintética 048",
+      "sector": "servicios",
+      "inversionProyectada": 65000,
+      "empleosProyectados": 16,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 49,
+      "empresa": "Empresa Sintética 049",
+      "sector": "servicios",
+      "inversionProyectada": 70000,
+      "empleosProyectados": 24,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 50,
+      "empresa": "Empresa Sintética 050",
+      "sector": "manufactura",
+      "inversionProyectada": 130000,
+      "empleosProyectados": 56,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 51,
+      "empresa": "Empresa Sintética 051",
+      "sector": "bpo",
+      "inversionProyectada": 105000,
+      "empleosProyectados": 50,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 52,
+      "empresa": "Empresa Sintética 052",
+      "sector": "logistica",
+      "inversionProyectada": 125000,
+      "empleosProyectados": 36,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 53,
+      "empresa": "Empresa Sintética 053",
+      "sector": "manufactura",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 12,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 54,
+      "empresa": "Empresa Sintética 054",
+      "sector": "tecnologia",
+      "inversionProyectada": 135000,
+      "empleosProyectados": 43,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 55,
+      "empresa": "Empresa Sintética 055",
+      "sector": "servicios",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 8,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 56,
+      "empresa": "Empresa Sintética 056",
+      "sector": "tecnologia",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 12,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 57,
+      "empresa": "Empresa Sintética 057",
+      "sector": "bpo",
+      "inversionProyectada": 55000,
+      "empleosProyectados": 40,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 58,
+      "empresa": "Empresa Sintética 058",
+      "sector": "bpo",
+      "inversionProyectada": 150000,
+      "empleosProyectados": 39,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 59,
+      "empresa": "Empresa Sintética 059",
+      "sector": "servicios",
+      "inversionProyectada": 65000,
+      "empleosProyectados": 54,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 60,
+      "empresa": "Empresa Sintética 060",
+      "sector": "manufactura",
+      "inversionProyectada": 120000,
+      "empleosProyectados": 59,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 61,
+      "empresa": "Empresa Sintética 061",
+      "sector": "manufactura",
+      "inversionProyectada": 60000,
+      "empleosProyectados": 14,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 62,
+      "empresa": "Empresa Sintética 062",
+      "sector": "bpo",
+      "inversionProyectada": 110000,
+      "empleosProyectados": 34,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 63,
+      "empresa": "Empresa Sintética 063",
+      "sector": "tecnologia",
+      "inversionProyectada": 150000,
+      "empleosProyectados": 49,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 64,
+      "empresa": "Empresa Sintética 064",
+      "sector": "tecnologia",
+      "inversionProyectada": 105000,
+      "empleosProyectados": 54,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 65,
+      "empresa": "Empresa Sintética 065",
+      "sector": "tecnologia",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 20,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 66,
+      "empresa": "Empresa Sintética 066",
+      "sector": "servicios",
+      "inversionProyectada": 115000,
+      "empleosProyectados": 16,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 67,
+      "empresa": "Empresa Sintética 067",
+      "sector": "manufactura",
+      "inversionProyectada": 85000,
+      "empleosProyectados": 37,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 68,
+      "empresa": "Empresa Sintética 068",
+      "sector": "tecnologia",
+      "inversionProyectada": 115000,
+      "empleosProyectados": 59,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 69,
+      "empresa": "Empresa Sintética 069",
+      "sector": "tecnologia",
+      "inversionProyectada": 145000,
+      "empleosProyectados": 42,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 70,
+      "empresa": "Empresa Sintética 070",
+      "sector": "tecnologia",
+      "inversionProyectada": 80000,
+      "empleosProyectados": 18,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 71,
+      "empresa": "Empresa Sintética 071",
+      "sector": "logistica",
+      "inversionProyectada": 120000,
+      "empleosProyectados": 21,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 72,
+      "empresa": "Empresa Sintética 072",
+      "sector": "tecnologia",
+      "inversionProyectada": 70000,
+      "empleosProyectados": 32,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    },
+    {
+      "id": 73,
+      "empresa": "Empresa Sintética 073",
+      "sector": "logistica",
+      "inversionProyectada": 85000,
+      "empleosProyectados": 67,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 74,
+      "empresa": "Empresa Sintética 074",
+      "sector": "bpo",
+      "inversionProyectada": 110000,
+      "empleosProyectados": 52,
+      "zonaFrancaId": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id": 75,
+      "empresa": "Empresa Sintética 075",
+      "sector": "manufactura",
+      "inversionProyectada": 75000,
+      "empleosProyectados": 26,
+      "zonaFrancaId": 1,
+      "estado": "pendiente"
+    }
+  ],
+  "empresas": [
+    {
+      "id": 1,
+      "nombre": "Empresa Instalada 001",
+      "solicitudId": 1,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 2,
+      "nombre": "Empresa Instalada 002",
+      "solicitudId": 2,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 3,
+      "nombre": "Empresa Instalada 003",
+      "solicitudId": 3,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 4,
+      "nombre": "Empresa Instalada 004",
+      "solicitudId": 4,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 5,
+      "nombre": "Empresa Instalada 005",
+      "solicitudId": 5,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 6,
+      "nombre": "Empresa Instalada 006",
+      "solicitudId": 6,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 7,
+      "nombre": "Empresa Instalada 007",
+      "solicitudId": 7,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 8,
+      "nombre": "Empresa Instalada 008",
+      "solicitudId": 8,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 9,
+      "nombre": "Empresa Instalada 009",
+      "solicitudId": 9,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 10,
+      "nombre": "Empresa Instalada 010",
+      "solicitudId": 10,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 11,
+      "nombre": "Empresa Instalada 011",
+      "solicitudId": 11,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 12,
+      "nombre": "Empresa Instalada 012",
+      "solicitudId": 12,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 13,
+      "nombre": "Empresa Instalada 013",
+      "solicitudId": 13,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 14,
+      "nombre": "Empresa Instalada 014",
+      "solicitudId": 14,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 15,
+      "nombre": "Empresa Instalada 015",
+      "solicitudId": 15,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 16,
+      "nombre": "Empresa Instalada 016",
+      "solicitudId": 16,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 17,
+      "nombre": "Empresa Instalada 017",
+      "solicitudId": 17,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 18,
+      "nombre": "Empresa Instalada 018",
+      "solicitudId": 18,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 19,
+      "nombre": "Empresa Instalada 019",
+      "solicitudId": 19,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 20,
+      "nombre": "Empresa Instalada 020",
+      "solicitudId": 20,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 21,
+      "nombre": "Empresa Instalada 021",
+      "solicitudId": 21,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 22,
+      "nombre": "Empresa Instalada 022",
+      "solicitudId": 22,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 23,
+      "nombre": "Empresa Instalada 023",
+      "solicitudId": 23,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 24,
+      "nombre": "Empresa Instalada 024",
+      "solicitudId": 24,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 25,
+      "nombre": "Empresa Instalada 025",
+      "solicitudId": 25,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 26,
+      "nombre": "Empresa Instalada 026",
+      "solicitudId": 26,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 27,
+      "nombre": "Empresa Instalada 027",
+      "solicitudId": 27,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 28,
+      "nombre": "Empresa Instalada 028",
+      "solicitudId": 28,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 29,
+      "nombre": "Empresa Instalada 029",
+      "solicitudId": 29,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 30,
+      "nombre": "Empresa Instalada 030",
+      "solicitudId": 30,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 31,
+      "nombre": "Empresa Instalada 031",
+      "solicitudId": 31,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 32,
+      "nombre": "Empresa Instalada 032",
+      "solicitudId": 32,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 33,
+      "nombre": "Empresa Instalada 033",
+      "solicitudId": 33,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 34,
+      "nombre": "Empresa Instalada 034",
+      "solicitudId": 34,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 35,
+      "nombre": "Empresa Instalada 035",
+      "solicitudId": 35,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 36,
+      "nombre": "Empresa Instalada 036",
+      "solicitudId": 36,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 37,
+      "nombre": "Empresa Instalada 037",
+      "solicitudId": 37,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 38,
+      "nombre": "Empresa Instalada 038",
+      "solicitudId": 38,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 39,
+      "nombre": "Empresa Instalada 039",
+      "solicitudId": 39,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 40,
+      "nombre": "Empresa Instalada 040",
+      "solicitudId": 40,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 41,
+      "nombre": "Empresa Instalada 041",
+      "solicitudId": 41,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 42,
+      "nombre": "Empresa Instalada 042",
+      "solicitudId": 42,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 43,
+      "nombre": "Empresa Instalada 043",
+      "solicitudId": 43,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 44,
+      "nombre": "Empresa Instalada 044",
+      "solicitudId": 44,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 45,
+      "nombre": "Empresa Instalada 045",
+      "solicitudId": 45,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 46,
+      "nombre": "Empresa Instalada 046",
+      "solicitudId": 46,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 47,
+      "nombre": "Empresa Instalada 047",
+      "solicitudId": 47,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 48,
+      "nombre": "Empresa Instalada 048",
+      "solicitudId": 48,
+      "zonaFrancaId": 2,
+      "estado": "activa"
+    },
+    {
+      "id": 49,
+      "nombre": "Empresa Instalada 049",
+      "solicitudId": 49,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    },
+    {
+      "id": 50,
+      "nombre": "Empresa Instalada 050",
+      "solicitudId": 50,
+      "zonaFrancaId": 1,
+      "estado": "activa"
+    }
+  ],
+  "reportesCumplimiento": [
+    {
+      "id": 1,
+      "empresaId": 1,
+      "empleosReales": 38,
+      "inversionEjecutada": 45000,
+      "exportaciones": 25000,
+      "fechaReporte": "2026-01-01",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 2,
+      "empresaId": 2,
+      "empleosReales": 24,
+      "inversionEjecutada": 70000,
+      "exportaciones": 55000,
+      "fechaReporte": "2026-02-02",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 3,
+      "empresaId": 3,
+      "empleosReales": 31,
+      "inversionEjecutada": 140000,
+      "exportaciones": 60000,
+      "fechaReporte": "2026-03-03",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 4,
+      "empresaId": 4,
+      "empleosReales": 31,
+      "inversionEjecutada": 135000,
+      "exportaciones": 50000,
+      "fechaReporte": "2026-04-04",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 5,
+      "empresaId": 5,
+      "empleosReales": 69,
+      "inversionEjecutada": 105000,
+      "exportaciones": 50000,
+      "fechaReporte": "2026-05-05",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 6,
+      "empresaId": 6,
+      "empleosReales": 11,
+      "inversionEjecutada": 40000,
+      "exportaciones": 75000,
+      "fechaReporte": "2026-06-06",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 7,
+      "empresaId": 7,
+      "empleosReales": 40,
+      "inversionEjecutada": 35000,
+      "exportaciones": 10000,
+      "fechaReporte": "2026-07-07",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 8,
+      "empresaId": 8,
+      "empleosReales": 47,
+      "inversionEjecutada": 150000,
+      "exportaciones": 30000,
+      "fechaReporte": "2026-08-08",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 9,
+      "empresaId": 9,
+      "empleosReales": 38,
+      "inversionEjecutada": 55000,
+      "exportaciones": 80000,
+      "fechaReporte": "2026-01-09",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 10,
+      "empresaId": 10,
+      "empleosReales": 59,
+      "inversionEjecutada": 115000,
+      "exportaciones": 10000,
+      "fechaReporte": "2026-02-10",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 11,
+      "empresaId": 11,
+      "empleosReales": 19,
+      "inversionEjecutada": 40000,
+      "exportaciones": 30000,
+      "fechaReporte": "2026-03-11",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 12,
+      "empresaId": 12,
+      "empleosReales": 9,
+      "inversionEjecutada": 160000,
+      "exportaciones": 65000,
+      "fechaReporte": "2026-04-12",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 13,
+      "empresaId": 13,
+      "empleosReales": 23,
+      "inversionEjecutada": 95000,
+      "exportaciones": 30000,
+      "fechaReporte": "2026-05-13",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 14,
+      "empresaId": 14,
+      "empleosReales": 10,
+      "inversionEjecutada": 75000,
+      "exportaciones": 65000,
+      "fechaReporte": "2026-06-14",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 15,
+      "empresaId": 15,
+      "empleosReales": 10,
+      "inversionEjecutada": 85000,
+      "exportaciones": 40000,
+      "fechaReporte": "2026-07-15",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 16,
+      "empresaId": 16,
+      "empleosReales": 36,
+      "inversionEjecutada": 135000,
+      "exportaciones": 25000,
+      "fechaReporte": "2026-08-16",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 17,
+      "empresaId": 17,
+      "empleosReales": 50,
+      "inversionEjecutada": 150000,
+      "exportaciones": 95000,
+      "fechaReporte": "2026-01-17",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 18,
+      "empresaId": 18,
+      "empleosReales": 57,
+      "inversionEjecutada": 125000,
+      "exportaciones": 30000,
+      "fechaReporte": "2026-02-18",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 19,
+      "empresaId": 19,
+      "empleosReales": 35,
+      "inversionEjecutada": 165000,
+      "exportaciones": 35000,
+      "fechaReporte": "2026-03-19",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 20,
+      "empresaId": 20,
+      "empleosReales": 27,
+      "inversionEjecutada": 95000,
+      "exportaciones": 10000,
+      "fechaReporte": "2026-04-20",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 21,
+      "empresaId": 21,
+      "empleosReales": 27,
+      "inversionEjecutada": 145000,
+      "exportaciones": 60000,
+      "fechaReporte": "2026-05-21",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 22,
+      "empresaId": 22,
+      "empleosReales": 57,
+      "inversionEjecutada": 155000,
+      "exportaciones": 45000,
+      "fechaReporte": "2026-06-22",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 23,
+      "empresaId": 23,
+      "empleosReales": 39,
+      "inversionEjecutada": 55000,
+      "exportaciones": 25000,
+      "fechaReporte": "2026-07-23",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 24,
+      "empresaId": 24,
+      "empleosReales": 53,
+      "inversionEjecutada": 165000,
+      "exportaciones": 15000,
+      "fechaReporte": "2026-08-24",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 25,
+      "empresaId": 25,
+      "empleosReales": 65,
+      "inversionEjecutada": 65000,
+      "exportaciones": 40000,
+      "fechaReporte": "2026-01-25",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 26,
+      "empresaId": 26,
+      "empleosReales": 63,
+      "inversionEjecutada": 85000,
+      "exportaciones": 55000,
+      "fechaReporte": "2026-02-26",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 27,
+      "empresaId": 27,
+      "empleosReales": 34,
+      "inversionEjecutada": 65000,
+      "exportaciones": 10000,
+      "fechaReporte": "2026-03-27",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 28,
+      "empresaId": 28,
+      "empleosReales": 29,
+      "inversionEjecutada": 90000,
+      "exportaciones": 60000,
+      "fechaReporte": "2026-04-01",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 29,
+      "empresaId": 29,
+      "empleosReales": 40,
+      "inversionEjecutada": 165000,
+      "exportaciones": 20000,
+      "fechaReporte": "2026-05-02",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 30,
+      "empresaId": 30,
+      "empleosReales": 40,
+      "inversionEjecutada": 85000,
+      "exportaciones": 90000,
+      "fechaReporte": "2026-06-03",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 31,
+      "empresaId": 31,
+      "empleosReales": 56,
+      "inversionEjecutada": 135000,
+      "exportaciones": 95000,
+      "fechaReporte": "2026-07-04",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 32,
+      "empresaId": 32,
+      "empleosReales": 47,
+      "inversionEjecutada": 30000,
+      "exportaciones": 25000,
+      "fechaReporte": "2026-08-05",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 33,
+      "empresaId": 33,
+      "empleosReales": 38,
+      "inversionEjecutada": 55000,
+      "exportaciones": 50000,
+      "fechaReporte": "2026-01-06",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 34,
+      "empresaId": 34,
+      "empleosReales": 9,
+      "inversionEjecutada": 45000,
+      "exportaciones": 75000,
+      "fechaReporte": "2026-02-07",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 35,
+      "empresaId": 35,
+      "empleosReales": 49,
+      "inversionEjecutada": 145000,
+      "exportaciones": 60000,
+      "fechaReporte": "2026-03-08",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 36,
+      "empresaId": 36,
+      "empleosReales": 60,
+      "inversionEjecutada": 125000,
+      "exportaciones": 90000,
+      "fechaReporte": "2026-04-09",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 37,
+      "empresaId": 37,
+      "empleosReales": 19,
+      "inversionEjecutada": 90000,
+      "exportaciones": 40000,
+      "fechaReporte": "2026-05-10",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 38,
+      "empresaId": 38,
+      "empleosReales": 37,
+      "inversionEjecutada": 35000,
+      "exportaciones": 75000,
+      "fechaReporte": "2026-06-11",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 39,
+      "empresaId": 39,
+      "empleosReales": 5,
+      "inversionEjecutada": 110000,
+      "exportaciones": 95000,
+      "fechaReporte": "2026-07-12",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 40,
+      "empresaId": 40,
+      "empleosReales": 30,
+      "inversionEjecutada": 85000,
+      "exportaciones": 75000,
+      "fechaReporte": "2026-08-13",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 41,
+      "empresaId": 41,
+      "empleosReales": 13,
+      "inversionEjecutada": 135000,
+      "exportaciones": 60000,
+      "fechaReporte": "2026-01-14",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 42,
+      "empresaId": 42,
+      "empleosReales": 45,
+      "inversionEjecutada": 135000,
+      "exportaciones": 25000,
+      "fechaReporte": "2026-02-15",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 43,
+      "empresaId": 43,
+      "empleosReales": 43,
+      "inversionEjecutada": 110000,
+      "exportaciones": 55000,
+      "fechaReporte": "2026-03-16",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 44,
+      "empresaId": 44,
+      "empleosReales": 57,
+      "inversionEjecutada": 80000,
+      "exportaciones": 70000,
+      "fechaReporte": "2026-04-17",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 45,
+      "empresaId": 45,
+      "empleosReales": 42,
+      "inversionEjecutada": 115000,
+      "exportaciones": 30000,
+      "fechaReporte": "2026-05-18",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 46,
+      "empresaId": 46,
+      "empleosReales": 29,
+      "inversionEjecutada": 95000,
+      "exportaciones": 70000,
+      "fechaReporte": "2026-06-19",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 47,
+      "empresaId": 47,
+      "empleosReales": 27,
+      "inversionEjecutada": 125000,
+      "exportaciones": 55000,
+      "fechaReporte": "2026-07-20",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 48,
+      "empresaId": 48,
+      "empleosReales": 56,
+      "inversionEjecutada": 115000,
+      "exportaciones": 10000,
+      "fechaReporte": "2026-08-21",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 49,
+      "empresaId": 49,
+      "empleosReales": 43,
+      "inversionEjecutada": 75000,
+      "exportaciones": 40000,
+      "fechaReporte": "2026-01-22",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 50,
+      "empresaId": 50,
+      "empleosReales": 60,
+      "inversionEjecutada": 155000,
+      "exportaciones": 60000,
+      "fechaReporte": "2026-02-23",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 51,
+      "empresaId": 1,
+      "empleosReales": 64,
+      "inversionEjecutada": 100000,
+      "exportaciones": 80000,
+      "fechaReporte": "2026-03-24",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 52,
+      "empresaId": 2,
+      "empleosReales": 32,
+      "inversionEjecutada": 110000,
+      "exportaciones": 85000,
+      "fechaReporte": "2026-04-25",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 53,
+      "empresaId": 3,
+      "empleosReales": 26,
+      "inversionEjecutada": 135000,
+      "exportaciones": 20000,
+      "fechaReporte": "2026-05-26",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 54,
+      "empresaId": 4,
+      "empleosReales": 41,
+      "inversionEjecutada": 110000,
+      "exportaciones": 60000,
+      "fechaReporte": "2026-06-27",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 55,
+      "empresaId": 5,
+      "empleosReales": 16,
+      "inversionEjecutada": 160000,
+      "exportaciones": 45000,
+      "fechaReporte": "2026-07-01",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 56,
+      "empresaId": 6,
+      "empleosReales": 44,
+      "inversionEjecutada": 65000,
+      "exportaciones": 40000,
+      "fechaReporte": "2026-08-02",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 57,
+      "empresaId": 7,
+      "empleosReales": 23,
+      "inversionEjecutada": 30000,
+      "exportaciones": 15000,
+      "fechaReporte": "2026-01-03",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 58,
+      "empresaId": 8,
+      "empleosReales": 36,
+      "inversionEjecutada": 105000,
+      "exportaciones": 20000,
+      "fechaReporte": "2026-02-04",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 59,
+      "empresaId": 9,
+      "empleosReales": 63,
+      "inversionEjecutada": 95000,
+      "exportaciones": 40000,
+      "fechaReporte": "2026-03-05",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 60,
+      "empresaId": 10,
+      "empleosReales": 54,
+      "inversionEjecutada": 105000,
+      "exportaciones": 70000,
+      "fechaReporte": "2026-04-06",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 61,
+      "empresaId": 11,
+      "empleosReales": 36,
+      "inversionEjecutada": 50000,
+      "exportaciones": 10000,
+      "fechaReporte": "2026-05-07",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 62,
+      "empresaId": 12,
+      "empleosReales": 18,
+      "inversionEjecutada": 150000,
+      "exportaciones": 75000,
+      "fechaReporte": "2026-06-08",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 63,
+      "empresaId": 13,
+      "empleosReales": 33,
+      "inversionEjecutada": 55000,
+      "exportaciones": 90000,
+      "fechaReporte": "2026-07-09",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 64,
+      "empresaId": 14,
+      "empleosReales": 64,
+      "inversionEjecutada": 35000,
+      "exportaciones": 95000,
+      "fechaReporte": "2026-08-10",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 65,
+      "empresaId": 15,
+      "empleosReales": 36,
+      "inversionEjecutada": 165000,
+      "exportaciones": 25000,
+      "fechaReporte": "2026-01-11",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 66,
+      "empresaId": 16,
+      "empleosReales": 63,
+      "inversionEjecutada": 50000,
+      "exportaciones": 80000,
+      "fechaReporte": "2026-02-12",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 67,
+      "empresaId": 17,
+      "empleosReales": 45,
+      "inversionEjecutada": 150000,
+      "exportaciones": 80000,
+      "fechaReporte": "2026-03-13",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 68,
+      "empresaId": 18,
+      "empleosReales": 69,
+      "inversionEjecutada": 95000,
+      "exportaciones": 95000,
+      "fechaReporte": "2026-04-14",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 69,
+      "empresaId": 19,
+      "empleosReales": 62,
+      "inversionEjecutada": 55000,
+      "exportaciones": 85000,
+      "fechaReporte": "2026-05-15",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 70,
+      "empresaId": 20,
+      "empleosReales": 62,
+      "inversionEjecutada": 70000,
+      "exportaciones": 45000,
+      "fechaReporte": "2026-06-16",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 71,
+      "empresaId": 21,
+      "empleosReales": 40,
+      "inversionEjecutada": 150000,
+      "exportaciones": 90000,
+      "fechaReporte": "2026-07-17",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 72,
+      "empresaId": 22,
+      "empleosReales": 67,
+      "inversionEjecutada": 130000,
+      "exportaciones": 45000,
+      "fechaReporte": "2026-08-18",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 73,
+      "empresaId": 23,
+      "empleosReales": 40,
+      "inversionEjecutada": 100000,
+      "exportaciones": 20000,
+      "fechaReporte": "2026-01-19",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 74,
+      "empresaId": 24,
+      "empleosReales": 41,
+      "inversionEjecutada": 65000,
+      "exportaciones": 50000,
+      "fechaReporte": "2026-02-20",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 75,
+      "empresaId": 25,
+      "empleosReales": 47,
+      "inversionEjecutada": 80000,
+      "exportaciones": 95000,
+      "fechaReporte": "2026-03-21",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 76,
+      "empresaId": 26,
+      "empleosReales": 15,
+      "inversionEjecutada": 50000,
+      "exportaciones": 30000,
+      "fechaReporte": "2026-04-22",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 77,
+      "empresaId": 27,
+      "empleosReales": 34,
+      "inversionEjecutada": 90000,
+      "exportaciones": 30000,
+      "fechaReporte": "2026-05-23",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 78,
+      "empresaId": 28,
+      "empleosReales": 32,
+      "inversionEjecutada": 40000,
+      "exportaciones": 75000,
+      "fechaReporte": "2026-06-24",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 79,
+      "empresaId": 29,
+      "empleosReales": 57,
+      "inversionEjecutada": 80000,
+      "exportaciones": 95000,
+      "fechaReporte": "2026-07-25",
+      "estado": "en regla",
+      "alertas": []
+    },
+    {
+      "id": 80,
+      "empresaId": 30,
+      "empleosReales": 64,
+      "inversionEjecutada": 95000,
+      "exportaciones": 15000,
+      "fechaReporte": "2026-08-26",
+      "estado": "en regla",
+      "alertas": []
+    }
+  ]
+}

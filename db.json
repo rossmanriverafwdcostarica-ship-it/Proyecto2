@@ -39,13 +39,33 @@
         }
       ],
       "zonaFrancaId": 1,
-      "estado": "pendiente",
-      "puntajeIA": null,
-      "justificacionIA": "",
-      "clasificacionIA": "",
-      "decisionFinal": "",
-      "analista": "",
-      "fechaSolicitud": "2026-08-20T15:00:00.000Z"
+      "estado": "decidida",
+      "puntajeIA": 100,
+      "justificacionIA": "Sector permitido: cumple el criterio y obtiene 40/40 puntos.\nInversión: 30/30 puntos. Proyectada: 80000; mínimo de la zona: 50000.\nEmpleos: 30/30 puntos. Proyectados: 25; mínimo de la zona: 10.",
+      "clasificacionIA": "Recomendada",
+      "decisionFinal": "Recomendada",
+      "analista": "rossam",
+      "fechaSolicitud": "2026-08-20T15:00:00.000Z",
+      "seguimiento": [
+        {
+          "estado": "Estado: evaluada",
+          "detalle": "Clasificación IA: Recomendada",
+          "usuario": "Analista Principal",
+          "fecha": "2026-08-21T15:25:03.386Z"
+        },
+        {
+          "estado": "Decisión: Recomendada",
+          "detalle": "no",
+          "usuario": "Analista Principal",
+          "fecha": "2026-08-21T15:26:16.532Z"
+        },
+        {
+          "estado": "Estado: decidida",
+          "detalle": "Expediente actualizado.",
+          "usuario": "Analista Principal",
+          "fecha": "2026-08-21T15:26:16.548Z"
+        }
+      ]
     },
     {
       "id": 2,
@@ -55,16 +75,868 @@
       "empleosProyectados": 8,
       "documentos": [],
       "zonaFrancaId": 1,
-      "estado": "pendiente",
-      "puntajeIA": null,
-      "justificacionIA": "",
-      "clasificacionIA": "",
+      "estado": "evaluada",
+      "puntajeIA": 88,
+      "justificacionIA": "Sector permitido: cumple el criterio y obtiene 40/40 puntos.\nInversión: 24/30 puntos. Proyectada: 40000; mínimo de la zona: 50000.\nEmpleos: 24/30 puntos. Proyectados: 8; mínimo de la zona: 10.",
+      "clasificacionIA": "Recomendada",
       "decisionFinal": "",
       "analista": "",
-      "fechaSolicitud": "2026-08-19T14:30:00.000Z"
+      "fechaSolicitud": "2026-08-19T14:30:00.000Z",
+      "seguimiento": [
+        {
+          "estado": "Estado: evaluada",
+          "detalle": "Clasificación IA: Recomendada",
+          "usuario": "Analista Principal",
+          "fecha": "2026-08-21T15:25:03.389Z"
+        }
+      ]
     }
   ],
-  "empresas": [],
-  "reportesCumplimiento": [],
-  "decisiones": []
+  "empresas": [
+    {
+      "nombre": "Tech Demo CR",
+      "solicitudId": 1,
+      "zonaFrancaId": 1,
+      "estado": "activa",
+      "id": 1
+    }
+  ],
+  "reportesCumplimiento": [
+    {
+      "empresaId": 1,
+      "empleosReales": 5,
+      "inversionEjecutada": 4,
+      "exportaciones": 2,
+      "fechaReporte": "2026-08-21",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (5 de 25)",
+          "diferencia": -20
+        },
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (4 de 80000)",
+          "diferencia": -79996
+        }
+      ],
+      "id": 1
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 5,
+      "inversionEjecutada": 4,
+      "exportaciones": 2,
+      "fechaReporte": "2026-08-21",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (5 de 25)",
+          "diferencia": -20
+        },
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (4 de 80000)",
+          "diferencia": -79996
+        }
+      ],
+      "id": 2
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 5,
+      "inversionEjecutada": 5,
+      "exportaciones": 5,
+      "fechaReporte": "2026-08-21",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (5 de 25)",
+          "diferencia": -20
+        },
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (5 de 80000)",
+          "diferencia": -79995
+        }
+      ],
+      "id": 3
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 5,
+      "exportaciones": 5,
+      "fechaReporte": "2026-08-21",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (5 de 80000)",
+          "diferencia": -79995
+        }
+      ],
+      "id": 4
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 5,
+      "exportaciones": 5,
+      "fechaReporte": "2026-08-21",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (5 de 80000)",
+          "diferencia": -79995
+        }
+      ],
+      "id": 5
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 25,
+      "exportaciones": 5,
+      "fechaReporte": "2026-08-21",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (25 de 80000)",
+          "diferencia": -79975
+        }
+      ],
+      "id": 6
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 25,
+      "exportaciones": 25,
+      "fechaReporte": "2026-08-21",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (25 de 80000)",
+          "diferencia": -79975
+        }
+      ],
+      "id": 7
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 25,
+      "fechaReporte": "2026-08-21",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 8
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 25,
+      "fechaReporte": "2026-08-21",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 9
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 2,
+      "fechaReporte": "2026-08-21",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 10
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 2,
+      "fechaReporte": "2026-08-21",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 11
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 9,
+      "fechaReporte": "2026-08-21",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 12
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 7,
+      "inversionEjecutada": 80000,
+      "exportaciones": 3,
+      "fechaReporte": "2026-08-21T15:55:01.324Z",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (7 de 25)",
+          "diferencia": -18
+        }
+      ],
+      "id": 13
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 3,
+      "fechaReporte": "2026-08-21T15:55:06.153Z",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 14
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 3,
+      "fechaReporte": "2026-08-21T15:55:08.549Z",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 15
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 3,
+      "fechaReporte": "2026-08-21T15:55:09.034Z",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 16
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 3,
+      "fechaReporte": "2026-08-21T15:55:09.251Z",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 17
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 1,
+      "inversionEjecutada": 45345,
+      "exportaciones": 4,
+      "fechaReporte": "2026-08-21T15:55:22.591Z",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (1 de 25)",
+          "diferencia": -24
+        },
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (45345 de 80000)",
+          "diferencia": -34655
+        }
+      ],
+      "id": 18
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 1,
+      "inversionEjecutada": 45345,
+      "exportaciones": 4,
+      "fechaReporte": "2026-08-21T15:55:23.400Z",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (1 de 25)",
+          "diferencia": -24
+        },
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (45345 de 80000)",
+          "diferencia": -34655
+        }
+      ],
+      "id": 19
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 1,
+      "inversionEjecutada": 45345,
+      "exportaciones": 4,
+      "fechaReporte": "2026-08-21T15:57:46.251Z",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (1 de 25)",
+          "diferencia": -24
+        },
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (45345 de 80000)",
+          "diferencia": -34655
+        }
+      ],
+      "id": 20
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 4,
+      "inversionEjecutada": 43535,
+      "exportaciones": 6,
+      "fechaReporte": "2026-08-21T15:59:54.906Z",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (4 de 25)",
+          "diferencia": -21
+        },
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (43535 de 80000)",
+          "diferencia": -36465
+        }
+      ],
+      "id": 21
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 25,
+      "inversionEjecutada": 80000,
+      "exportaciones": 4,
+      "fechaReporte": "2026-08-21T16:00:22.613Z",
+      "estado": "en regla",
+      "alertas": [],
+      "id": 22
+    },
+    {
+      "empresaId": 1,
+      "empleosReales": 23,
+      "inversionEjecutada": 56666,
+      "exportaciones": 4,
+      "fechaReporte": "2026-08-21T16:40:59.314Z",
+      "estado": "con alerta",
+      "alertas": [
+        {
+          "tipo": "empleos",
+          "mensaje": "Empleos por debajo de lo comprometido (23 de 25)",
+          "diferencia": -2
+        },
+        {
+          "tipo": "inversion",
+          "mensaje": "Inversión por debajo de lo comprometido (56666 de 80000)",
+          "diferencia": -23334
+        }
+      ],
+      "id": 23
+    }
+  ],
+  "decisiones": [
+    {
+      "solicitudId": 1,
+      "decision": "Recomendada",
+      "usuario": "rossam",
+      "fecha": "2026-08-21T15:26:16.210Z",
+      "observacion": "no",
+      "id": 1
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Administrador ZoFranca",
+      "email": "admin@zofranca.cr",
+      "passwordHash": "0a5bc3e342432f1bad92ffd51b785343ec72906cdba6a26131060b008e786656",
+      "rol": "Administrador",
+      "estado": "Activo",
+      "telefono": "+50688880001",
+      "provincia": "San José",
+      "direccion": "",
+      "empresaNombre": "",
+      "fechaRegistro": "2026-08-21T14:20:00.000Z",
+      "tema": "claro",
+      "sonido": true,
+      "ultimoAcceso": "2026-08-21T16:09:56.012Z"
+    },
+    {
+      "id": 2,
+      "nombre": "Analista Principal",
+      "email": "analista@zofranca.cr",
+      "passwordHash": "3c280e789d263464e0d8509ddde7301ac12094013654cf69ec42bfca98dccf62",
+      "rol": "Analista",
+      "estado": "Activo",
+      "telefono": "+50688880002",
+      "provincia": "San José",
+      "direccion": "",
+      "empresaNombre": "",
+      "fechaRegistro": "2026-08-21T14:20:00.000Z",
+      "tema": "oscuro",
+      "sonido": true,
+      "ultimoAcceso": "2026-08-21T16:43:36.548Z"
+    },
+    {
+      "id": 3,
+      "nombre": "Empresa Demo",
+      "email": "empresa@demo.cr",
+      "passwordHash": "25cdcd8f5f1d7f86d47191d334e65e8d2157ea5955abc91d431e290522ac219c",
+      "rol": "Empresa",
+      "estado": "Activo",
+      "telefono": "+50688880003",
+      "provincia": "Alajuela",
+      "direccion": "",
+      "empresaNombre": "Tech Demo CR",
+      "fechaRegistro": "2026-08-21T14:20:00.000Z",
+      "tema": "claro",
+      "sonido": true
+    },
+    {
+      "id": 4,
+      "nombre": "Rossman",
+      "email": "rossmanr1vera02@gmail.com",
+      "passwordHash": "7c360ea409e61bf9bb5eb76c8db9804986a23e656ea7c53ede3240042c9a29bf",
+      "rol": "Empresa",
+      "estado": "Pendiente",
+      "telefono": "61160600",
+      "provincia": "Puntarenas",
+      "direccion": "",
+      "empresaNombre": "dfds",
+      "fechaRegistro": "2026-08-21T16:09:04.854Z",
+      "tema": "claro",
+      "sonido": true
+    }
+  ],
+  "soporteTickets": [],
+  "papelera": [],
+  "actividad": [
+    {
+      "id": 1,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "LOGIN",
+      "entidad": "sesion",
+      "entidadId": 2,
+      "detalle": "Inicio de sesión",
+      "fecha": "2026-08-21T15:23:05.525Z"
+    },
+    {
+      "id": 2,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "ACTUALIZAR",
+      "entidad": "solicitudes",
+      "entidadId": 1,
+      "detalle": "evaluada",
+      "fecha": "2026-08-21T15:25:03.387Z"
+    },
+    {
+      "id": 3,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "ACTUALIZAR",
+      "entidad": "solicitudes",
+      "entidadId": 2,
+      "detalle": "evaluada",
+      "fecha": "2026-08-21T15:25:03.389Z"
+    },
+    {
+      "id": 4,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "CREAR",
+      "entidad": "decisiones",
+      "entidadId": 1,
+      "detalle": "",
+      "fecha": "2026-08-21T15:26:16.532Z"
+    },
+    {
+      "id": 5,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "ACTUALIZAR",
+      "entidad": "solicitudes",
+      "entidadId": 1,
+      "detalle": "decidida",
+      "fecha": "2026-08-21T15:26:16.548Z"
+    },
+    {
+      "id": 6,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "CREAR",
+      "entidad": "empresas",
+      "entidadId": 1,
+      "detalle": "Tech Demo CR",
+      "fecha": "2026-08-21T15:26:16.566Z"
+    },
+    {
+      "id": 7,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "LOGOUT",
+      "entidad": "sesion",
+      "entidadId": 2,
+      "detalle": "Cierre de sesión",
+      "fecha": "2026-08-21T15:27:51.719Z"
+    },
+    {
+      "id": 8,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "LOGIN",
+      "entidad": "sesion",
+      "entidadId": 1,
+      "detalle": "Inicio de sesión",
+      "fecha": "2026-08-21T15:40:53.169Z"
+    },
+    {
+      "id": 9,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 1,
+      "detalle": "",
+      "fecha": "2026-08-21T15:41:23.149Z"
+    },
+    {
+      "id": 10,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 2,
+      "detalle": "",
+      "fecha": "2026-08-21T15:41:27.224Z"
+    },
+    {
+      "id": 11,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 3,
+      "detalle": "",
+      "fecha": "2026-08-21T15:41:38.406Z"
+    },
+    {
+      "id": 12,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 4,
+      "detalle": "",
+      "fecha": "2026-08-21T15:42:01.279Z"
+    },
+    {
+      "id": 13,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 5,
+      "detalle": "",
+      "fecha": "2026-08-21T15:42:13.035Z"
+    },
+    {
+      "id": 14,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 6,
+      "detalle": "",
+      "fecha": "2026-08-21T15:42:20.496Z"
+    },
+    {
+      "id": 15,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 7,
+      "detalle": "",
+      "fecha": "2026-08-21T15:42:23.637Z"
+    },
+    {
+      "id": 16,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 8,
+      "detalle": "",
+      "fecha": "2026-08-21T15:42:38.596Z"
+    },
+    {
+      "id": 17,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 9,
+      "detalle": "",
+      "fecha": "2026-08-21T15:42:52.216Z"
+    },
+    {
+      "id": 18,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 10,
+      "detalle": "",
+      "fecha": "2026-08-21T15:43:03.464Z"
+    },
+    {
+      "id": 19,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 11,
+      "detalle": "",
+      "fecha": "2026-08-21T15:43:07.590Z"
+    },
+    {
+      "id": 20,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 12,
+      "detalle": "",
+      "fecha": "2026-08-21T15:48:48.822Z"
+    },
+    {
+      "id": 21,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 13,
+      "detalle": "",
+      "fecha": "2026-08-21T15:55:01.324Z"
+    },
+    {
+      "id": 22,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 14,
+      "detalle": "",
+      "fecha": "2026-08-21T15:55:06.152Z"
+    },
+    {
+      "id": 23,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 15,
+      "detalle": "",
+      "fecha": "2026-08-21T15:55:08.547Z"
+    },
+    {
+      "id": 24,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 16,
+      "detalle": "",
+      "fecha": "2026-08-21T15:55:09.033Z"
+    },
+    {
+      "id": 25,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 17,
+      "detalle": "",
+      "fecha": "2026-08-21T15:55:09.250Z"
+    },
+    {
+      "id": 26,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 18,
+      "detalle": "",
+      "fecha": "2026-08-21T15:55:22.591Z"
+    },
+    {
+      "id": 27,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 19,
+      "detalle": "",
+      "fecha": "2026-08-21T15:55:23.398Z"
+    },
+    {
+      "id": 28,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 20,
+      "detalle": "",
+      "fecha": "2026-08-21T15:57:46.555Z"
+    },
+    {
+      "id": 29,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 21,
+      "detalle": "",
+      "fecha": "2026-08-21T15:59:54.908Z"
+    },
+    {
+      "id": 30,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 22,
+      "detalle": "",
+      "fecha": "2026-08-21T16:00:22.937Z"
+    },
+    {
+      "id": 31,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "LOGOUT",
+      "entidad": "sesion",
+      "entidadId": 1,
+      "detalle": "Cierre de sesión",
+      "fecha": "2026-08-21T16:01:04.074Z"
+    },
+    {
+      "id": 32,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "LOGIN",
+      "entidad": "sesion",
+      "entidadId": 2,
+      "detalle": "Inicio de sesión",
+      "fecha": "2026-08-21T16:01:09.118Z"
+    },
+    {
+      "id": 33,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "LOGOUT",
+      "entidad": "sesion",
+      "entidadId": 2,
+      "detalle": "Cierre de sesión",
+      "fecha": "2026-08-21T16:08:41.067Z"
+    },
+    {
+      "id": 34,
+      "usuarioId": null,
+      "usuario": "Sistema",
+      "accion": "REGISTRO",
+      "entidad": "usuarios",
+      "entidadId": 4,
+      "detalle": "Solicitud de acceso de dfds",
+      "fecha": "2026-08-21T16:09:04.854Z"
+    },
+    {
+      "id": 35,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "LOGIN",
+      "entidad": "sesion",
+      "entidadId": 1,
+      "detalle": "Inicio de sesión",
+      "fecha": "2026-08-21T16:09:56.012Z"
+    },
+    {
+      "id": 36,
+      "usuarioId": 1,
+      "usuario": "Administrador ZoFranca",
+      "accion": "LOGOUT",
+      "entidad": "sesion",
+      "entidadId": 1,
+      "detalle": "Cierre de sesión",
+      "fecha": "2026-08-21T16:38:01.867Z"
+    },
+    {
+      "id": 37,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "LOGIN",
+      "entidad": "sesion",
+      "entidadId": 2,
+      "detalle": "Inicio de sesión",
+      "fecha": "2026-08-21T16:39:02.758Z"
+    },
+    {
+      "id": 38,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "CREAR",
+      "entidad": "reportesCumplimiento",
+      "entidadId": 23,
+      "detalle": "",
+      "fecha": "2026-08-21T16:40:59.645Z"
+    },
+    {
+      "id": 39,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "ACTUALIZAR",
+      "entidad": "perfil",
+      "entidadId": 2,
+      "detalle": "Perfil actualizado",
+      "fecha": "2026-08-21T16:42:49.410Z"
+    },
+    {
+      "id": 40,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "LOGOUT",
+      "entidad": "sesion",
+      "entidadId": 2,
+      "detalle": "Cierre de sesión",
+      "fecha": "2026-08-21T16:43:01.555Z"
+    },
+    {
+      "id": 41,
+      "usuarioId": 2,
+      "usuario": "Analista Principal",
+      "accion": "LOGIN",
+      "entidad": "sesion",
+      "entidadId": 2,
+      "detalle": "Inicio de sesión",
+      "fecha": "2026-08-21T16:43:36.548Z"
+    }
+  ]
 }

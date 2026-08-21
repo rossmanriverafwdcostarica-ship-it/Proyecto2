@@ -1,11 +1,13 @@
 import { reportesService } from '../services/reportesService.js';
 import { empresasService } from '../services/empresasService.js';
-import { showLoading, hideLoading, showError } from '../utils/ui.js';
+import { escapeHTML, showLoading, hideLoading, showError } from '../utils/ui.js';
 
 document.addEventListener('DOMContentLoaded', cargarAlertas);
 
 async function cargarAlertas() {
   const contenedor = document.getElementById('contenedorAlertas');
+  if (!contenedor) return;
+
   try {
     showLoading();
     const [reportes, empresas] = await Promise.all([
@@ -13,35 +15,47 @@ async function cargarAlertas() {
       empresasService.getAll()
     ]);
 
-    const empresasMap = new Map(empresas.map(e => [e.id, e.nombre]));
+    const empresasMap = new Map(empresas.map(e => [String(e.id), e.nombre]));
     const reportesConAlerta = reportes.filter(r => r.estado === 'con alerta');
 
-    if (reportesConAlerta.length === 0) {
-      contenedor.innerHTML = '<p class="empty-state">Todas las empresas están en regla. No existen alertas registradas.</p>';
+    if (!reportesConAlerta.length) {
+      contenedor.innerHTML = `
+        <div class="empty-state module-empty">
+          <span class="material-symbols-outlined">verified</span>
+          <div><strong>No hay alertas activas</strong><p>Cuando un reporte incumpla un compromiso, aparecerá aquí automáticamente.</p></div>
+        </div>`;
       return;
     }
 
-    contenedor.innerHTML = reportesConAlerta.map(reporte => `
-      <div class="card card-alerta">
-        <div class="alerta-header">
-          <h3>${empresasMap.get(reporte.empresaId) || 'Empresa Desconocida'}</h3>
-          <span class="badge badge-error">Requiere Atención</span>
-        </div>
-        <p><strong>Fecha de Reporte:</strong> ${reporte.fechaReporte}</p>
-        <div class="alertas-list">
-          ${reporte.alertas.map(a => `
-            <div class="alerta-item alerta-${a.tipo}">
-              <p><strong>Tipo de Incumplimiento:</strong> ${a.tipo.toUpperCase()}</p>
-              <p>${a.mensaje}</p>
-              <p><strong>Diferencia Negativa:</strong> ${a.diferencia.toLocaleString()}</p>
+    contenedor.innerHTML = reportesConAlerta.map(reporte => {
+      const alertas = Array.isArray(reporte.alertas) ? reporte.alertas : [];
+      return `
+        <article class="alert-card-modern">
+          <div class="alert-card-head">
+            <div>
+              <span class="module-kicker">Empresa instalada</span>
+              <h3>${escapeHTML(empresasMap.get(String(reporte.empresaId)) || 'Empresa desconocida')}</h3>
+              <p>Reporte del ${escapeHTML(reporte.fechaReporte || 'sin fecha')}</p>
             </div>
-          `).join('')}
-        </div>
-      </div>
-    `).join('');
+            <span class="status-badge status-rechazada">Requiere atención</span>
+          </div>
+          <div class="alert-detail-grid">
+            ${alertas.map(a => `
+              <div class="alert-detail-item">
+                <span class="material-symbols-outlined">warning</span>
+                <div>
+                  <strong>${escapeHTML(String(a.tipo || 'alerta').toUpperCase())}</strong>
+                  <p>${escapeHTML(a.mensaje || 'Incumplimiento detectado.')}</p>
+                  <small>Diferencia: ${Number(a.diferencia || 0).toLocaleString('es-CR')}</small>
+                </div>
+              </div>`).join('') || '<p>No hay detalle disponible para esta alerta.</p>'}
+          </div>
+        </article>`;
+    }).join('');
   } catch (err) {
     console.error('[Alertas Error]:', err);
-    showError('Error al cargar las alertas de incumplimiento.');
+    showError('Error al cargar las alertas. Inicie el servidor con npm start y vuelva a intentar.');
+    contenedor.innerHTML = '<div class="empty-state"><p>No fue posible consultar las alertas.</p></div>';
   } finally {
     hideLoading();
   }

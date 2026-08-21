@@ -1,5 +1,5 @@
 import { API_BASE_URL } from '../config/config.js';
-import { showLoading, hideLoading, showError } from '../utils/ui.js';
+import { escapeHTML, formatearFecha, showLoading, hideLoading, showError } from '../utils/ui.js';
 
 document.addEventListener('DOMContentLoaded', cargarHistorial);
 
@@ -9,137 +9,66 @@ async function cargarHistorial() {
 
   try {
     showLoading();
-
-    // Consultas independientes en paralelo mediante Promise.all
-    const [solicitudesRes, empresasRes, reportesRes, decisionesRes] = await Promise.all([
+    const respuestas = await Promise.all([
       fetch(`${API_BASE_URL}/solicitudes`),
       fetch(`${API_BASE_URL}/empresas`),
       fetch(`${API_BASE_URL}/reportesCumplimiento`),
       fetch(`${API_BASE_URL}/decisiones`)
     ]);
 
-    // Validación individual de res.ok
-    if (!solicitudesRes.ok || !empresasRes.ok || !reportesRes.ok || !decisionesRes.ok) {
-      throw new Error('Fallo en una o más peticiones al servidor.');
-    }
+    if (respuestas.some(res => !res.ok)) throw new Error('Fallo en una o más peticiones al servidor.');
+    const [solicitudes, empresas, reportes, decisiones] = await Promise.all(respuestas.map(res => res.json()));
 
-    // Extracción de datos en paralelo
-    const [solicitudes, empresas, reportes, decisiones] = await Promise.all([
-      solicitudesRes.json(),
-      empresasRes.json(),
-      reportesRes.json(),
-      decisionesRes.json()
-    ]);
-
-    // Empty State
-    if (!empresas || empresas.length === 0) {
+    if (!empresas.length) {
       contenedor.innerHTML = `
-        <div class="empty-state">
-          <p>No existen empresas ni registros en el historial de trazabilidad actualmente.</p>
-        </div>
-      `;
+        <div class="empty-state module-empty">
+          <span class="material-symbols-outlined">history</span>
+          <div><strong>No hay empresas instaladas todavía</strong><p>Cuando una solicitud sea aprobada como Recomendada, su trazabilidad aparecerá aquí.</p></div>
+        </div>`;
       return;
     }
 
-    // Renderizado relacional utilizando empresaId, solicitudId y zonaFrancaId
     contenedor.innerHTML = empresas.map(empresa => {
-      const solicitud = solicitudes.find(s => s.id === empresa.solicitudId) || {};
-      const decision = decisiones.find(d => d.solicitudId === solicitud.id) || {};
-      const reportesEmpresa = reportes.filter(r => r.empresaId === empresa.id);
-
-      const estadoClase = empresa.estado === 'activa' ? 'badge-success' : 'badge-warning';
+      const solicitud = solicitudes.find(s => String(s.id) === String(empresa.solicitudId)) || {};
+      const decision = decisiones
+        .filter(d => String(d.solicitudId) === String(solicitud.id))
+        .sort((a, b) => new Date(b.fecha || 0) - new Date(a.fecha || 0))[0] || {};
+      const reportesEmpresa = reportes
+        .filter(r => String(r.empresaId) === String(empresa.id))
+        .sort((a, b) => new Date(b.fechaReporte || 0) - new Date(a.fechaReporte || 0));
 
       return `
         <article class="historial-card">
           <header class="historial-header">
-            <div>
-              <h2>${empresa.nombre || 'Empresa sin nombre'}</h2>
-              <small class="text-muted">Zona Franca ID: ${solicitud.zonaFrancaId || 'N/A'} | Empresa ID: ${empresa.id}</small>
-            </div>
-            <span class="badge ${estadoClase}">${empresa.estado ? empresa.estado.toUpperCase() : 'DESCONOCIDO'}</span>
+            <div><span class="module-kicker">Expediente empresarial</span><h2>${escapeHTML(empresa.nombre || 'Empresa sin nombre')}</h2><small class="text-muted">Empresa #${escapeHTML(empresa.id)} · Zona #${escapeHTML(solicitud.zonaFrancaId || empresa.zonaFrancaId || 'N/A')}</small></div>
+            <span class="status-badge ${empresa.estado === 'activa' ? 'status-recomendada' : 'status-pendiente'}">${escapeHTML(String(empresa.estado || 'desconocido').toUpperCase())}</span>
           </header>
-
           <div class="timeline">
-            <!-- 1. Solicitud Inicial -->
-            <section class="timeline-item">
-              <span class="timeline-step">1</span>
-              <div class="timeline-content">
-                <h4>Solicitud Inicial</h4>
-                <p><strong>Fecha de Ingreso:</strong> ${solicitud.fechaSolicitud || 'No registrada'}</p>
-                <p><strong>Solicitud ID:</strong> ${solicitud.id || 'N/A'}</p>
-                <p><strong>Inversión Proyectada:</strong> $${(solicitud.inversionProyectada || 0).toLocaleString()}</p>
-                <p><strong>Empleos Proyectados:</strong> ${solicitud.empleosProyectados || 0} plazas</p>
-              </div>
-            </section>
-
-            <!-- 2. Evaluación IA -->
-            <section class="timeline-item">
-              <span class="timeline-step">2</span>
-              <div class="timeline-content">
-                <h4>Evaluación Asistida por IA</h4>
-                <p><strong>Puntaje Asignado:</strong> ${solicitud.puntajeIA ?? 'Sin puntaje'} / 100</p>
-                <p><strong>Clasificación:</strong> ${solicitud.clasificacionIA || 'Sin clasificar'}</p>
-                <p><strong>Justificación IA:</strong> ${solicitud.justificacionIA || 'Sin justificación registrada.'}</p>
-              </div>
-            </section>
-
-            <!-- 3. Decisión Humana -->
-            <section class="timeline-item">
-              <span class="timeline-step">3</span>
-              <div class="timeline-content">
-                <h4>Decisión Humana y Resolución</h4>
-                <p><strong>Resolución:</strong> ${decision.decision || solicitud.decisionFinal || 'Pendiente'}</p>
-                <p><strong>Usuario Responsable:</strong> ${decision.usuario || 'N/A'}</p>
-                <p><strong>Fecha de Decisión:</strong> ${decision.fecha || 'N/A'}</p>
-                <p><strong>Observaciones:</strong> ${decision.observacion || 'Sin observaciones adicionales.'}</p>
-              </div>
-            </section>
-
-            <!-- 4. Reportes de Cumplimiento y Alertas -->
-            <section class="timeline-item">
-              <span class="timeline-step">4</span>
-              <div class="timeline-content">
-                <h4>Historial de Cumplimiento Periódico (${reportesEmpresa.length})</h4>
-                ${reportesEmpresa.length === 0 
-                  ? '<p class="text-muted">No se han registrado reportes de cumplimiento para esta empresa.</p>'
-                  : reportesEmpresa.map(rep => `
-                    <div class="sub-reporte ${rep.estado === 'con alerta' ? 'sub-alerta' : 'sub-regla'}">
-                      <div class="sub-reporte-header">
-                        <strong>Reporte (${rep.fechaReporte})</strong>
-                        <span class="badge ${rep.estado === 'con alerta' ? 'badge-error' : 'badge-success'}">${rep.estado.toUpperCase()}</span>
-                      </div>
-                      <p><strong>Empleos Reales:</strong> ${rep.empleosReales} | <strong>Inversión Ejecutada:</strong> $${rep.inversionEjecutada.toLocaleString()} | <strong>Exportaciones:</strong> $${rep.exportaciones.toLocaleString()}</p>
-                      ${rep.alertas && rep.alertas.length > 0 ? `
-                        <div class="alertas-detalle">
-                          <strong>Alertas Generadas:</strong>
-                          <ul>
-                            ${rep.alertas.map(a => `<li>[${a.tipo.toUpperCase()}] ${a.mensaje}</li>`).join('')}
-                          </ul>
-                        </div>
-                      ` : ''}
-                    </div>
-                  `).join('')
-                }
-              </div>
-            </section>
-
-            <!-- 5. Estado Actual -->
-            <section class="timeline-item">
-              <span class="timeline-step">5</span>
-              <div class="timeline-content">
-                <h4>Estado Operativo Actual</h4>
-                <p>La empresa se encuentra registrada como <strong>${empresa.nombre}</strong> bajo el estado operativo <strong>${empresa.estado}</strong>.</p>
-              </div>
-            </section>
+            ${timelineItem(1, 'Solicitud inicial', `Fecha: ${formatearFecha(solicitud.fechaSolicitud)} · Inversión: $${Number(solicitud.inversionProyectada || 0).toLocaleString('es-CR')} · Empleos: ${Number(solicitud.empleosProyectados || 0).toLocaleString('es-CR')}`)}
+            ${timelineItem(2, 'Evaluación IA', `Puntaje: ${solicitud.puntajeIA ?? '—'}/100 · Clasificación: ${escapeHTML(solicitud.clasificacionIA || 'Sin clasificar')}`)}
+            ${timelineItem(3, 'Decisión humana', `Resolución: ${escapeHTML(decision.decision || solicitud.decisionFinal || 'Pendiente')} · Responsable: ${escapeHTML(decision.usuario || solicitud.analista || 'No registrado')} · Fecha: ${formatearFecha(decision.fecha)}`)}
+            ${timelineReportes(reportesEmpresa)}
+            ${timelineItem(5, 'Estado actual', `La empresa se encuentra ${escapeHTML(empresa.estado || 'sin estado')} y acumula ${reportesEmpresa.length} reporte(s) de cumplimiento.`)}
           </div>
-        </article>
-      `;
+        </article>`;
     }).join('');
-
   } catch (err) {
-    console.error('[Historial - Carga Optimizada Error]:', err);
-    showError('No se pudo cargar el historial de trazabilidad. Intente nuevamente en unos momentos.');
+    console.error('[Historial Error]:', err);
+    showError('No se pudo cargar el historial. Inicie el servidor con npm start y vuelva a intentar.');
+    contenedor.innerHTML = '<div class="empty-state"><p>No fue posible consultar la trazabilidad.</p></div>';
   } finally {
     hideLoading();
   }
+}
+
+function timelineItem(step, title, text) {
+  return `<section class="timeline-item"><span class="timeline-step">${step}</span><div class="timeline-content"><h4>${title}</h4><p>${text}</p></div></section>`;
+}
+
+function timelineReportes(reportes) {
+  const body = reportes.length
+    ? reportes.map(rep => `<div class="history-report ${rep.estado === 'con alerta' ? 'has-alert' : ''}"><strong>${escapeHTML(rep.fechaReporte || 'Sin fecha')}</strong><span>${escapeHTML(rep.estado || '')}</span><p>Empleos: ${rep.empleosReales} · Inversión: $${Number(rep.inversionEjecutada || 0).toLocaleString('es-CR')} · Exportaciones: $${Number(rep.exportaciones || 0).toLocaleString('es-CR')}</p></div>`).join('')
+    : '<p class="text-muted">No existen reportes de cumplimiento.</p>';
+
+  return `<section class="timeline-item"><span class="timeline-step">4</span><div class="timeline-content"><h4>Reportes y alertas</h4>${body}</div></section>`;
 }

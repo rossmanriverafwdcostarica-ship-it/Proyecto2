@@ -1,120 +1,303 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ZoFranca CR - Gestión académica de solicitudes para zonas francas">
-    <title>ZoFranca CR</title>
-    <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/solicitudes.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ZoFranca CR - Gestión integral de solicitudes y cumplimiento">
+  <title>ZoFranca CR</title>
+  <link rel="stylesheet" href="./assets/css/app.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container header-content">
-            <a class="brand" href="./index.html" aria-label="Ir al inicio de ZoFranca CR">
-                <span class="brand-mark">ZF</span>
-                <span>ZoFranca CR</span>
-            </a>
-
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-                Menú
-            </button>
-
-            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
-                <a href="./index.html" class="active">Inicio</a>
-                <a href="./pages/solicitud.html">Nueva solicitud</a>
-                <a href="./pages/solicitudes.html">Solicitudes</a>
-                <a href="./pages/reporte-cumplimiento.html">Cumplimiento</a>
-                <a href="./pages/alertas.html">Alertas</a>
-                <a href="./pages/historial.html">Historial</a>
-                <a href="./pages/dashboard.html">Dashboard</a>
-            </nav>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">ZF</div>
+        <div>
+          <strong>ZoFranca CR</strong>
+          <span>Administración FTZ</span>
         </div>
-    </header>
+      </div>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-grid">
-                <div>
-                    <p class="eyebrow">Plataforma administrativa académica</p>
-                    <h1>Gestión de solicitudes para ZoFranca CR</h1>
-                    <p class="hero-text">
-                        Registre solicitudes de instalación, evalúelas mediante una IA simulada
-                        y mantenga siempre la decisión final bajo responsabilidad de un analista humano.
-                    </p>
+      <nav class="side-nav" aria-label="Navegación principal">
+        <button class="nav-item active" type="button" data-view="dashboard"><span>▦</span> Dashboard</button>
+        <button class="nav-item" type="button" data-view="solicitudes"><span>▤</span> Solicitudes</button>
+        <button class="nav-item" type="button" data-view="nueva"><span>＋</span> Nueva Solicitud</button>
+        <button class="nav-item" type="button" data-view="cumplimiento"><span>✓</span> Cumplimiento</button>
+        <button class="nav-item" type="button" data-view="alertas"><span>!</span> Alertas</button>
+        <button class="nav-item" type="button" data-view="historial"><span>↺</span> Historial</button>
+        <button class="nav-item" type="button" data-view="hacienda"><span>CR</span> Hacienda CR</button>
+      </nav>
 
-                    <div class="hero-actions">
-                        <a class="button button-primary" href="./pages/solicitud.html">Crear solicitud</a>
-                        <a class="button button-secondary" href="./pages/solicitudes.html">Ver solicitudes</a>
-                    </div>
-                </div>
+      <div class="sidebar-bottom">
+        <div class="support-card" role="button" tabindex="0" aria-label="Abrir Centro ZoFranca CR">
+          <span>◉</span>
+          <div><strong>Soporte Técnico</strong><small>Centro de atención</small></div>
+        </div>
+      </div>
+    </aside>
 
-                <aside class="hero-card" aria-label="Resumen del flujo">
-                    <h2>Flujo principal</h2>
-                    <ol class="step-list">
-                        <li>Registrar la zona franca y sus criterios mínimos.</li>
-                        <li>Enviar la solicitud de instalación.</li>
-                        <li>Evaluar inversión, empleo y sector con IA simulada.</li>
-                        <li>Revisar la recomendación y registrar la decisión humana.</li>
-                    </ol>
-                </aside>
-            </div>
+    <div class="app-main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Abrir menú">☰</button>
+        <div class="search-wrap">
+          <span>⌕</span>
+          <input id="globalSearch" type="search" placeholder="Buscar empresa o expediente..." autocomplete="off">
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activar modo oscuro" title="Cambiar tema">◐</button>
+        <div class="topbar-user" role="button" tabindex="0" aria-label="Abrir perfil">
+          <div class="user-copy"><strong>Analista Principal</strong><span>Admin Nivel 2</span></div>
+          <div class="avatar">AP</div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <div id="globalMessage" class="global-message hidden" role="status" aria-live="polite"></div>
+        <div id="loadingBar" class="loading-bar hidden"><span></span></div>
+
+        <section class="view active" id="view-dashboard" data-section="dashboard">
+          <div class="page-heading">
+            <div><p class="kicker">Resumen General</p><h1>Panel de Métricas del Proceso</h1><p>Información consolidada del flujo de solicitudes y cumplimiento.</p></div>
+            <button class="btn btn-outline" type="button" data-refresh>Actualizar</button>
+          </div>
+          <div class="metric-grid">
+            <article class="metric-card"><span class="metric-label">Total Solicitudes</span><strong id="metricSolicitudes">0</strong><small>Expedientes registrados</small></article>
+            <article class="metric-card"><span class="metric-label">Solicitudes Aprobadas</span><strong id="metricAprobadas">0%</strong><small>Decisión final recomendada</small></article>
+            <article class="metric-card"><span class="metric-label">Empresas en Regla</span><strong id="metricRegla">0</strong><small>Último reporte sin alertas</small></article>
+            <article class="metric-card alert"><span class="metric-label">Empresas con Alerta</span><strong id="metricAlerta">0</strong><small>Requieren atención</small></article>
+          </div>
+          <article class="hacienda-strip">
+            <div><p class="kicker">Datos públicos de Costa Rica</p><h2>Indicadores del Ministerio de Hacienda</h2><p>Referencia oficial para análisis de inversiones y contexto financiero.</p></div>
+            <div id="dashboardHaciendaRates" class="hacienda-rate-mini"><span>Consultando tipo de cambio...</span></div>
+            <button class="btn btn-outline" type="button" data-view-target="hacienda">Abrir servicios</button>
+          </article>
+          <div class="dashboard-grid">
+            <article class="panel-card">
+              <div class="panel-head"><div><h2>Solicitudes recientes</h2><p>Últimos expedientes registrados.</p></div><button class="link-btn" type="button" data-view-target="solicitudes">Ver todas</button></div>
+              <div id="recentRequests" class="compact-list"></div>
+            </article>
+            <article class="panel-card">
+              <div class="panel-head"><div><h2>Estado de cumplimiento</h2><p>Resumen del último reporte por empresa.</p></div></div>
+              <div id="complianceSummary" class="compact-list"></div>
+            </article>
+          </div>
         </section>
 
-        <section class="container section">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Módulo de Solicitudes e IA</p>
-                    <h2>Funciones disponibles</h2>
-                </div>
+        <section class="view" id="view-solicitudes" data-section="solicitudes">
+          <div class="page-heading">
+            <div><p class="kicker">Gestión de Expedientes</p><h1>Solicitudes</h1><p>Filtre, evalúe y revise las solicitudes registradas.</p></div>
+            <div class="heading-actions"><button class="btn btn-outline" id="evaluatePending" type="button">Evaluar pendientes</button><button class="btn btn-primary" type="button" data-view-target="nueva">Nueva solicitud</button></div>
+          </div>
+          <div class="panel-card">
+            <div class="filters-row">
+              <select id="filterStatus"><option value="">Todos los estados</option><option value="pendiente">Pendiente</option><option value="evaluada">Evaluada</option><option value="decidida">Decidida</option></select>
+              <select id="filterZone"><option value="">Todas las zonas</option></select>
+              <select id="filterSector"><option value="">Todos los sectores</option></select>
+              <input id="filterDate" type="date">
+              <button class="btn btn-ghost" id="clearFilters" type="button">Limpiar</button>
             </div>
-
-            <div class="feature-grid">
-                <article class="card">
-                    <span class="feature-number">01</span>
-                    <h3>Nueva solicitud</h3>
-                    <p>Registre datos de la empresa, sector, inversión, empleos y documentos de respaldo.</p>
-                    <a class="text-link" href="./pages/solicitud.html">Abrir formulario →</a>
-                </article>
-
-                <article class="card">
-                    <span class="feature-number">02</span>
-                    <h3>Evaluación con IA</h3>
-                    <p>Procese solicitudes pendientes con una puntuación de 0 a 100 y clasificación automática.</p>
-                    <a class="text-link" href="./pages/solicitudes.html">Procesar solicitudes →</a>
-                </article>
-
-                <article class="card">
-                    <span class="feature-number">03</span>
-                    <h3>Decisión del analista</h3>
-                    <p>Confirme, cambie o rechace la recomendación sin borrar la clasificación original de IA.</p>
-                    <a class="text-link" href="./pages/solicitudes.html">Revisar solicitudes →</a>
-                </article>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Empresa</th><th>Sector</th><th>Zona</th><th>Fecha</th><th>IA</th><th>Clasificación</th><th>Decisión</th><th>Estado</th><th></th></tr></thead>
+                <tbody id="requestsTable"></tbody>
+              </table>
             </div>
-
-            <div class="notice notice-info">
-                <strong>Principio del sistema:</strong>
-                La IA recomienda. La decisión final corresponde al analista humano.
-            </div>
+            <div id="requestsEmpty" class="empty-state hidden"><strong>No hay solicitudes</strong><span>No existen registros que coincidan con los filtros seleccionados.</span></div>
+          </div>
         </section>
-    </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>ZoFranca CR · Proyecto académico</p>
-        </div>
-    </footer>
+        <section class="view" id="view-nueva" data-section="nueva">
+          <div class="page-heading">
+            <div><p class="kicker">Nuevo Expediente</p><h1>Nueva Solicitud</h1><p>Registre los datos de la empresa y sus compromisos proyectados.</p></div>
+          </div>
+          <div class="two-column">
+            <article class="panel-card">
+              <h2>Datos de la solicitud</h2>
+              <form id="requestForm" class="form-grid" novalidate>
+                <label class="field"><span>Empresa *</span><input name="empresa" type="text" required></label>
+                <label class="field"><span>Sector *</span><input name="sector" type="text" placeholder="tecnologia" required></label>
+                <label class="field"><span>Zona franca *</span><select name="zonaFrancaId" id="requestZone" required><option value="">Seleccione...</option></select></label>
+                <label class="field"><span>Inversión proyectada *</span><input name="inversionProyectada" type="number" min="0" step="0.01" required></label>
+                <label class="field"><span>Empleos proyectados *</span><input name="empleosProyectados" type="number" min="0" step="1" required></label>
+                <label class="field full"><span>Documentos de respaldo</span><input name="documentos" type="file" multiple><small>Se guardan metadatos de los archivos para este laboratorio.</small></label>
+                <div class="form-actions full"><button class="btn btn-primary" type="submit">Enviar solicitud</button><button class="btn btn-outline" type="reset">Limpiar</button></div>
+              </form>
+            </article>
+            <article class="panel-card soft-card">
+              <div class="panel-head"><div><h2>Registrar zona franca</h2><p>Permite agregar nuevas zonas sin cambiar el código.</p></div></div>
+              <form id="zoneForm" class="stack-form" novalidate>
+                <label class="field"><span>Nombre *</span><input name="nombre" type="text" required></label>
+                <label class="field"><span>Inversión mínima *</span><input name="inversionMinima" type="number" min="0" required></label>
+                <label class="field"><span>Empleos mínimos *</span><input name="empleosMinimos" type="number" min="0" required></label>
+                <label class="field"><span>Sectores permitidos *</span><input name="sectoresPermitidos" type="text" placeholder="tecnologia, manufactura, bpo" required></label>
+                <button class="btn btn-secondary" type="submit">Registrar zona</button>
+              </form>
+              <div class="rule-card"><strong>Evaluación IA</strong><span>Sector 40 pts · Inversión 30 pts · Empleos 30 pts</span></div>
+            </article>
+          </div>
+        </section>
 
-    <script>
-        const toggle = document.querySelector(".nav-toggle");
-        const nav = document.querySelector("#main-nav");
+        <section class="view" id="view-detalle" data-section="detalle">
+          <div class="page-heading">
+            <div><button class="back-link" type="button" data-view-target="solicitudes">← Volver a Solicitudes</button><p class="kicker">Expediente ZoFranca CR</p><h1>Detalle de Solicitud</h1><p id="detailSubtitle">Seleccione una solicitud desde el listado.</p></div>
+          </div>
+          <div id="detailEmpty" class="empty-state"><strong>Seleccione una solicitud</strong><span>Abra un expediente desde el listado para revisar la IA y registrar la decisión humana.</span></div>
+          <div id="detailContent" class="detail-layout hidden">
+            <div class="detail-left">
+              <article class="panel-card">
+                <div class="panel-head"><div><h2>Información del expediente</h2></div><span id="detailStatus" class="badge">—</span></div>
+                <dl class="detail-grid">
+                  <div><dt>Empresa</dt><dd id="detailEmpresa">—</dd></div><div><dt>Sector</dt><dd id="detailSector">—</dd></div>
+                  <div><dt>Zona franca</dt><dd id="detailZona">—</dd></div><div><dt>Fecha</dt><dd id="detailFecha">—</dd></div>
+                  <div><dt>Inversión proyectada</dt><dd id="detailInversion">—</dd></div><div><dt>Empleos proyectados</dt><dd id="detailEmpleos">—</dd></div>
+                </dl>
+                <div class="divider"></div><h3>Documentos</h3><ul id="detailDocuments" class="document-list"></ul>
+              </article>
+              <article class="panel-card ai-card">
+                <div class="panel-head"><div><p class="kicker">IA Simulada</p><h2>Evaluación automática</h2></div></div>
+                <div class="ai-row"><div><span>Puntaje IA</span><strong id="detailScore">—</strong></div><div><span>Clasificación</span><b id="detailClassification" class="badge">Sin evaluar</b></div></div>
+                <div id="detailJustification" class="justification">Esta solicitud todavía no ha sido evaluada.</div>
+              </article>
+            </div>
+            <aside class="panel-card decision-card">
+              <p class="kicker">Control Humano</p><h2>Decisión del Analista</h2>
+              <div class="human-note">La IA recomienda. La decisión final corresponde al analista humano.</div>
+              <div id="currentDecision"></div>
+              <form id="decisionForm" class="stack-form">
+                <label class="field"><span>Analista *</span><input id="decisionAnalyst" type="text" required></label>
+                <label class="field"><span>Decisión *</span><select id="decisionValue" required><option value="">Seleccione...</option><option value="Recomendada">Recomendada</option><option value="Revisar">Revisar</option><option value="Rechazada">Rechazada</option></select></label>
+                <label class="field"><span>Observación</span><textarea id="decisionObservation" rows="5"></textarea></label>
+                <button class="btn btn-primary" type="submit">Guardar decisión</button>
+                <div class="decision-shortcuts"><button class="btn btn-outline" id="confirmAI" type="button">Confirmar IA</button><button class="btn btn-danger-soft" id="rejectAI" type="button">Rechazar sugerencia</button></div>
+              </form>
+            </aside>
+          </div>
+        </section>
 
-        if (toggle && nav) {
-            toggle.addEventListener("click", () => {
-                const open = nav.classList.toggle("open");
-                toggle.setAttribute("aria-expanded", String(open));
-            });
-        }
-    </script>
+        <section class="view" id="view-cumplimiento" data-section="cumplimiento">
+          <div class="page-heading"><div><p class="kicker">Seguimiento</p><h1>Reporte de Cumplimiento</h1><p>Compare resultados reales contra los compromisos de la solicitud aprobada.</p></div></div>
+          <div class="two-column">
+            <article class="panel-card">
+              <form id="complianceForm" class="form-grid">
+                <label class="field full"><span>Empresa instalada *</span><select id="complianceCompany" required><option value="">Seleccione...</option></select></label>
+                <div class="commitment-card"><span>Empleos comprometidos</span><strong id="committedJobs">0</strong></div>
+                <div class="commitment-card"><span>Inversión comprometida</span><strong id="committedInvestment">$0</strong></div>
+                <label class="field"><span>Empleos reales *</span><input id="realJobs" type="number" min="0" required></label>
+                <label class="field"><span>Inversión ejecutada *</span><input id="executedInvestment" type="number" min="0" required></label>
+                <label class="field full"><span>Exportaciones *</span><input id="exportsValue" type="number" min="0" required></label>
+                <button class="btn btn-primary full" type="submit">Guardar reporte</button>
+              </form>
+            </article>
+            <article class="panel-card soft-card"><h2>Últimos reportes</h2><div id="latestReports" class="compact-list"></div></article>
+          </div>
+        </section>
+
+        <section class="view" id="view-alertas" data-section="alertas">
+          <div class="page-heading"><div><p class="kicker">Monitoreo</p><h1>Panel de Alertas de Incumplimiento</h1><p>Casos detectados a partir de los reportes de cumplimiento.</p></div><button class="btn btn-outline" type="button" data-refresh>Actualizar</button></div>
+          <div id="alertsContainer" class="cards-list"></div>
+          <div id="alertsEmpty" class="empty-state hidden"><strong>Sin alertas activas</strong><span>No se han detectado incumplimientos en los reportes disponibles.</span></div>
+        </section>
+
+        <section class="view" id="view-historial" data-section="historial">
+          <div class="page-heading"><div><p class="kicker">Trazabilidad</p><h1>Historial de Empresas</h1><p>Solicitud, evaluación IA, decisión humana, reportes y alertas en una sola línea temporal.</p></div></div>
+          <article class="panel-card">
+            <label class="field history-select"><span>Empresa</span><select id="historyCompany"><option value="">Seleccione una empresa...</option></select></label>
+            <div id="historyTimeline" class="timeline"></div>
+            <div id="historyEmpty" class="empty-state"><strong>Seleccione una empresa</strong><span>La trazabilidad aparecerá aquí.</span></div>
+          </article>
+        </section>
+
+        <section class="view" id="view-hacienda" data-section="hacienda">
+          <div class="page-heading hacienda-heading">
+            <div><p class="kicker">Servicios públicos integrados</p><h1>Hacienda CR</h1><p>Consultas oficiales de apoyo para validación tributaria, análisis financiero y clasificación de bienes y servicios.</p></div>
+            <button class="btn btn-outline" id="refreshHaciendaRates" type="button">Actualizar indicadores</button>
+          </div>
+
+          <div class="hacienda-note">
+            <strong>Integración responsable</strong>
+            <span>Las consultas se realizan desde el servidor Node, con caché temporal y una llamada por acción para respetar los límites de la API pública.</span>
+          </div>
+
+          <section class="hacienda-rates" id="haciendaRates">
+            <article class="hacienda-rate-card"><span>Dólar compra</span><strong>—</strong><small>CRC</small></article>
+            <article class="hacienda-rate-card"><span>Dólar venta</span><strong>—</strong><small>CRC</small></article>
+            <article class="hacienda-rate-card"><span>Euro</span><strong>—</strong><small>CRC</small></article>
+          </section>
+
+          <div class="hacienda-grid">
+            <article class="panel-card api-card">
+              <div class="api-head"><span class="api-index">01</span><div><h2>Validación de contribuyente</h2><p>Consulta nombre, régimen, situación tributaria y actividades económicas por identificación.</p></div></div>
+              <form id="taxpayerForm" class="api-form"><label class="field"><span>Identificación (9–12 dígitos)</span><input name="identificacion" inputmode="numeric" maxlength="12" placeholder="2100042005" required></label><button class="btn btn-primary" type="submit">Consultar</button></form>
+              <div id="taxpayerResult" class="api-result muted-result">Sin consulta.</div>
+            </article>
+
+            <article class="panel-card api-card">
+              <div class="api-head"><span class="api-index">02</span><div><h2>Exoneraciones</h2><p>Valida una autorización de exoneración en el formato oficial indicado por Hacienda.</p></div></div>
+              <form id="exonerationForm" class="api-form"><label class="field"><span>Autorización</span><input name="autorizacion" placeholder="AL-00460853-20" required></label><button class="btn btn-primary" type="submit">Validar</button></form>
+              <div id="exonerationResult" class="api-result muted-result">Sin consulta.</div>
+            </article>
+
+            <article class="panel-card api-card">
+              <div class="api-head"><span class="api-index">03</span><div><h2>Registros sectoriales</h2><p>Consulta registros agropecuarios del MAG o información vinculada a pesca y acuicultura.</p></div></div>
+              <form id="sectorRegistryForm" class="api-form api-form-split"><label class="field"><span>Registro</span><select name="tipo"><option value="agropecuario">Agropecuario</option><option value="pesca">Pesca / acuicultura</option></select></label><label class="field"><span>Identificación</span><input name="identificacion" inputmode="numeric" maxlength="12" required></label><button class="btn btn-primary" type="submit">Consultar</button></form>
+              <div id="sectorRegistryResult" class="api-result muted-result">Sin consulta.</div>
+            </article>
+
+            <article class="panel-card api-card">
+              <div class="api-head"><span class="api-index">04</span><div><h2>Catálogo CABYS</h2><p>Busca códigos de bienes y servicios por descripción o consulta un código de 13 dígitos.</p></div></div>
+              <form id="cabysForm" class="api-form api-form-split"><label class="field"><span>Descripción</span><input name="q" placeholder="servicio tecnológico"></label><label class="field"><span>Código CABYS</span><input name="codigo" inputmode="numeric" maxlength="13" placeholder="13 dígitos"></label><button class="btn btn-primary" type="submit">Buscar</button></form>
+              <div id="cabysResult" class="api-result muted-result">Sin consulta.</div>
+            </article>
+
+            <article class="panel-card api-card api-card-wide">
+              <div class="api-head"><span class="api-index">05</span><div><h2>Histórico del dólar</h2><p>Consulta el tipo de cambio diario en un rango de fechas para contextualizar inversiones proyectadas o ejecutadas.</p></div></div>
+              <form id="fxHistoryForm" class="api-form api-form-split"><label class="field"><span>Desde</span><input name="desde" type="date" required></label><label class="field"><span>Hasta</span><input name="hasta" type="date" required></label><button class="btn btn-primary" type="submit">Consultar histórico</button></form>
+              <div id="fxHistoryResult" class="api-result muted-result">Sin consulta.</div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <div id="loginOverlay" class="login-overlay">
+    <div class="login-stage">
+      <section id="loginPanel" class="login-card">
+        <div class="login-brand"><div class="brand-icon">ZF</div><div><strong>ZoFranca CR</strong><span>Acceso seguro al sistema</span></div></div>
+        <h1>Iniciar sesión</h1>
+        <p>Use su cuenta de Administrador, Analista o Empresa.</p>
+        <form id="loginForm" class="stack-form">
+          <label class="field"><span>Correo</span><input name="email" type="email" value="analista@zofranca.cr" autocomplete="username" required></label>
+          <label class="field"><span>Contraseña</span><input name="password" type="password" value="Analista123*" autocomplete="current-password" required></label>
+          <div id="loginError" class="auth-message error"></div>
+          <button class="btn btn-primary" type="submit">Ingresar</button>
+        </form>
+        <div class="login-links"><button id="showRegister" class="link-btn" type="button">Solicitar acceso como empresa</button><button id="mobileLoginPreview" class="link-btn" type="button">Vista móvil</button></div>
+        <div class="demo-box"><strong>Cuentas demo</strong><span>Admin: admin@zofranca.cr / Admin123*</span><span>Analista: analista@zofranca.cr / Analista123*</span><span>Empresa: empresa@demo.cr / Empresa123*</span></div>
+      </section>
+
+      <section id="registerPanel" class="login-card hidden">
+        <div class="login-brand"><div class="brand-icon">ZF</div><div><strong>ZoFranca CR</strong><span>Solicitud de acceso empresarial</span></div></div>
+        <h1>Registro de empresa</h1>
+        <p>La cuenta quedará Pendiente hasta revisión administrativa.</p>
+        <form id="registerCompanyForm" class="stack-form">
+          <label class="field"><span>Nombre de contacto</span><input name="nombre" required></label>
+          <label class="field"><span>Empresa</span><input name="empresaNombre" required></label>
+          <label class="field"><span>Correo</span><input name="email" type="email" required></label>
+          <label class="field"><span>Teléfono</span><input name="telefono" inputmode="tel"></label>
+          <label class="field"><span>Provincia</span><input name="provincia"></label>
+          <label class="field"><span>Contraseña</span><input name="password" type="password" minlength="8" required></label>
+          <div id="registerMessage" class="auth-message"></div>
+          <button class="btn btn-primary" type="submit">Enviar solicitud de acceso</button>
+        </form>
+        <button id="showLogin" class="link-btn" type="button">Volver al inicio de sesión</button>
+      </section>
+    </div>
+  </div>
+
+  <div id="modalRoot"></div>
+  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/enhancements.js"></script>
 </body>
 </html>
